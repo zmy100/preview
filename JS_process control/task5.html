@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 比较最大值 -->
+    <!-- 用户依次输入 4 个值，最后弹出最大的那个值 -->
+    <script>
+      // 接收用户的输入
+      var num1 = Number(prompt("请输入第一个数字 :"));
+      var num2 = Number(prompt("请输入第二个数字 :"));
+      var num3 = Number(prompt("请输入第三个数字 :"));
+      var num4 = Number(prompt("请输入第四个数字 :"));
+      // 定义一个变量，来接收最大值
+      var max = num1;
+      //   判断最大值
+      if (max < num2) {
+        max = num2;
+      }
+      if (max < num3) {
+        max = num3;
+      }
+      if (max < num4) {
+        max = num4;
+      }
+      alert(max);
+    </script>
+  </body>
+</html>
