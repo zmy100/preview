@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 计算三角形的面积 -->
+    <script>
+      var length = Number(prompt("请输入三角形的底边长度:"));
+      if (isNaN(length)) {
+        alert("请输入正确的数字");
+      } else {
+        var height = Number(prompt("请输入三角形的高:"));
+        if (isNaN(height)) {
+          alert("请输入正确的数字");
+        } else {
+          var area = (length * height) / 2;
+          alert("三角形的面积是" + area);
+        }
+      }
+    </script>
+  </body>
+</html>

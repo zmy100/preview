@@ -8,20 +8,15 @@
   <body>
     <!-- 发放奖励 -->
     <script>
-      var score = prompt("请输入小明的考试成绩：");
-      switch (score) {
-        case "score >= 90 && score <= 100":
-          alert("山地自行车一辆");
-          break;
-        case "score >= 80 && score <= 89":
-          alert("游乐场一日游");
-          break;
-        case "score >= 70 && score <= 79":
-          alert("变形金刚玩具一个");
-          break;
-        case "score < 70":
-          alert("男女混合双打");
-          break;
+      var score = Number(prompt("请输入小明的考试成绩："));
+      if (score >= 90 && score <= 100) {
+        alert("山地自行车一辆");
+      } else if (score >= 80 && score <= 89) {
+        alert("游乐场一日游");
+      } else if (score >= 70 && score <= 79) {
+        alert("变形金刚玩具一个");
+      } else {
+        alert("男女混合双打");
       }
     </script>
   </body>

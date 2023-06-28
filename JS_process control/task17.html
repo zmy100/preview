@@ -6,14 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- 判断奇偶数 -->
+    <!-- 求正方形的面积 -->
     <script>
-      var number = Number(prompt("请输入一个正整数："));
-      // 判断奇偶数
-      if (number % 2 == 0) {
-        alert(number + "是偶数");
+      var length = Number(prompt("请输入正方形的边长:"));
+      if (isNaN(length)) {
+        alert("请输入正确的数字!");
       } else {
-        alert(number + "是奇数");
+        alert("正方形的面积是:" + Math.pow(length, 2));
       }
     </script>
   </body>
