@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 鸡兔同笼 -->
+    <script>
+      var chookNum = 0;
+      var rabbitNum = 0;
+
+      for (var i = 0; i <= 35; i++) {
+        chookNum = i;
+        rabbitNum = 35 - chookNum;
+        if (2 * chookNum + 4 * rabbitNum === 94) {
+          break;
+        }
+      }
+      alert("笼中有" + chookNum + "只鸡," + rabbitNum + "只兔");
+    </script>
+  </body>
+</html>
