@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 猜数字小游戏 -->
+    <script>
+      // 生成一个随机数,在循环的过程中随机数不变
+      // 生成并弹出0-40之间的随机整数
+      var randomNum = parseInt(Math.random() * 41);
+      // 定义一个变量，存储猜数字的次数
+      var count = 5;
+      // 生成一个无限循环
+      while (true) {
+        // 提醒用户输入一个数字
+        var userNum = Number(prompt("请输入一个数字,0-40之间的整数:"));
+        // 判断用户输入的数字是否合法
+        if (isNaN(userNum) || userNum < 0 || userNum > 40) {
+          alert("输入的数字不合法");
+          // 用户输入的数字不合法就跳过本次循环
+          continue;
+        }
+        // 输入数字合法，猜错一次，减掉一次
+        count--;
+        // 输入的数字合法则进入比较
+        if (userNum > randomNum) {
+          alert("输入的数字大了...您还有" + count + "次机会");
+        } else if (userNum < randomNum) {
+          alert("输入的数字小了...您还有" + count + "次机会");
+        } else {
+          alert("恭喜!猜对了!");
+          break;
+        }
+        // 如果机会用完了还没有猜对,跳出
+        if (count === 0) {
+          // 提醒用户正确的数字
+          alert("数字是" + randomNum);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
