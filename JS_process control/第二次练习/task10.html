@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      var money = Number(prompt("请输入您的存款(单位:万)"));
+      if (money >= 500) {
+        alert("阿斯顿·马丁 DBS");
+      } else if (money >= 100) {
+        alert("奥迪 S6");
+      } else if (money >= 50) {
+        alert("宝马 X3");
+      } else if (money >= 10) {
+        alert("大众 Polo");
+      } else {
+        alert("五菱之光");
+      }
     </script>
-</body>
+  </body>
 </html>

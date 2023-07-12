@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      /*  1>>4   date%7===1
+        2>>5  date%7===2
+        3>>6  date%7===3
+        4>>7  date%7===4
+        5>>1  date%7===5
+        6>>2  date%7===6
+        7>>3  date%7===0 */
+      var date = prompt("请输入本月的日期(1日-30日)");
+      if (date % 7 === 1) {
+        alert(date + "日是星期四");
+      }
+      if (date % 7 === 2) {
+        alert(date + "日是星期五");
+      }
+      if (date % 7 === 3) {
+        alert(date + "日是星期六");
+      }
+      if (date % 7 === 4) {
+        alert(date + "日是星期天");
+      }
+      if (date % 7 === 5) {
+        alert(date + "日是星期一");
+      }
+      if (date % 7 === 6) {
+        alert(date + "日是星期二");
+      }
+      if (date % 7 === 0) {
+        alert(date + "日是星期三");
+      }
     </script>
-</body>
+  </body>
 </html>
