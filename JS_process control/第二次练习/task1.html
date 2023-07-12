@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var gender = Number(prompt("请输入您的性别,男或者女:"));
+      var height = Number(prompt("请输入您的身高,单位是cm:"));
+      var weight = Number(prompt("请输入您的体重,单位是kg:"));
+      var normalWeight = 0;
+      if ((gender = "男")) {
+        normalWeight = (Number(height) - 80) * 0.7;
+      }
+      if ((gender = "女")) {
+        normalWeight = (Number(height) - 70) * 0.6;
+      }
+      if (Number(weight) < normalWeight * 0.95) {
+        alert("太瘦了，要多补充营养哦");
+      } else if (Number(weight) > normalWeight * 1.05) {
+        alert("该锻炼身体减肥了哦");
+      } else {
+        alert("体重正常");
+      }
+    </script>
+  </body>
+</html>

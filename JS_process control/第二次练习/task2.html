@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var telephone = prompt("请输入您的手机号:");
+      if (telephone.length !== 11) {
+        alert("输入错误，请重新输入");
+      } else if (isNaN(Number(telephone))) {
+        alert("输入错误，请重新输入");
+      } else {
+        alert("输入正确");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var number = prompt("请输入一个三位数：");
+      while (number.length !== 3) {
+        alert("数字不正确");
+        number = prompt("请输入一个三位数：");
+      }
+      var number1 = number.charAt(0);
+      var number2 = number.charAt(1);
+      var number3 = number.charAt(2);
+      var result =
+        Math.pow(Number(number1), 3) +
+        Math.pow(Number(number2), 3) +
+        Math.pow(Number(number3), 3);
+      if (number == result) {
+        alert(number + "是水仙花数");
+      } else {
+        alert(number + "不是水仙花数");
+      }
+    </script>
+  </body>
+</html>
