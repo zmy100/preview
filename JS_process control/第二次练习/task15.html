@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      var length = Number(prompt("请输入三角形的底边长度:"));
+      if (isNaN(length)) {
+        alert("输入错误,请重新输入");
+      } else {
+        var height = Number(prompt("请输入三角形的高:"));
+        if (isNaN(height)) {
+          alert("输入错误,请重新输入");
+        } else {
+          var area = (length * height) / 2;
+          alert("三角形的面积是" + area);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      var year = prompt("请输入年份:");
+      var month = prompt("请输入月份:");
+      switch (month) {
+        case "1":
+        case "3":
+        case "5":
+        case "7":
+        case "8":
+        case "10":
+        case "12":
+          alert("这个月有31天");
+          break;
+        case "4":
+        case "6":
+        case "9":
+        case "11":
+          alert("这个月有30天");
+          break;
+        case "2":
+          if (
+            (year % 4 === 0 && year % 100 !== 0) ||
+            (year % 100 === 0 && year % 400 === 0)
+          ) {
+            alert("这个月有29天");
+          } else {
+            alert("这个月有28天");
+          }
+          break;
+        default:
+          alert("请输入正确的月份");
+          break;
+      }
     </script>
-</body>
+  </body>
 </html>

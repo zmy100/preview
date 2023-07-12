@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      var num1 = Number(prompt("请输入第一个数字:"));
+      if (isNaN(num1)) {
+        alert("请输入正确的数字!");
+      } else {
+        var num2 = Number(prompt("请输入第二个数字:"));
+        if (isNaN(num2)) {
+          alert("请输入正确的数字!");
+        } else {
+          var sum = num1 + num2;
+          var minus = num1 - num2;
+          var multiply = num1 * num2;
+          var divide = num1 / num2;
+          var remainder = num1 % num2;
+          alert("运算结果请按F12,打开控制台查看！");
+          console.log(num1 + "+" + num2 + "=" + sum);
+          console.log(num1 + "-" + num2 + "=" + minus);
+          console.log(num1 + "×" + num2 + "=" + multiply);
+          console.log(num1 + "÷" + num2 + "=" + divide);
+          console.log(num1 + "%" + num2 + "=" + remainder);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

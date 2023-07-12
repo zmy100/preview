@@ -7,13 +7,13 @@
   </head>
   <body>
     <script>
-      var length = Number(prompt("请输入正方形的边长:"));
-      if (isNaN(length)) {
-        alert("请输入正确的数字!");
-      } else {
-        var area = length * length;
-        alert("正方形的面积是" + area);
+      var i = 1;
+      var result = 1;
+      while (i <= 10) {
+        result *= i;
+        i++;
       }
+      console.log(result);
     </script>
   </body>
 </html>
