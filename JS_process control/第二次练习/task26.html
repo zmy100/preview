@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      while (true) {
+        var username = prompt("请输入用户名:");
+        var password = prompt("请输入用户密码:");
+        if (username === "admin" && password === "admin123") {
+          alert("恭喜, 登录成功!");
+          break;
+        } else {
+          alert("对不起, 用户名或密码不正确!");
+        }
+      }
+    </script>
+  </body>
+</html>

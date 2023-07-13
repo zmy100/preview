@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 生成一个随机数
+      var randomNum = parseInt(Math.random() * 41);
+      // 计数次数5次
+      var count = 5;
+      //   循环判断数字大小
+      while (count > 0) {
+        // 用户输入一个0-40之间的数字
+        var userNum = Number(prompt("你来猜?输入0~40之间的一个数字:"));
+        // 判断输入的数字是否合法
+        if (isNaN(userNum) || userNum < 0 || userNum > 40) {
+          alert("输入的数字不合法");
+          continue;
+        }
+        count--;
+        if (randomNum < userNum) {
+          alert("你猜大了,还有" + count + "次机会!");
+        } else if (randomNum > userNum) {
+          alert("你猜小了,还有" + count + "次机会!");
+        } else {
+          alert("恭喜你,猜对了!");
+          break;
+        }
+        // 机会用完还没有才对，给出正确的数字，跳出循环
+        if (count === 0) {
+          alert("数字为:" + randomNum);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
