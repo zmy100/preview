@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 120px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="mytable"></table>
+    <script>
+      // 请创建九九乘法表
+      var table = document.getElementById("mytable");
+      var tr = null,
+        td = null;
+      for (var i = 1; i <= 9; i++) {
+        tr = document.createElement("tr");
+        for (var j = 1; j <= i; j++) {
+          td = document.createElement("td");
+          td.innerText = j + "乘" + i + "等于" + i * j;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    </script>
+  </body>
+</html>
