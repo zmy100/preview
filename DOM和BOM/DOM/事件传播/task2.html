@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    var divLeft = 0;
+    var divTop = 0;
+    // 获取对象
+    var div = document.querySelector("div");
+    document.onkeydown = function (e) {
+      switch (e.keyCode) {
+        case 37:
+          // 左
+          // 获取到div当前的left,再减去3px,赋值给div,style,left
+          divLeft =
+            parseInt(document.defaultView.getComputedStyle(div)["left"]) -
+            3 +
+            "px";
+          div.style.left = divLeft;
+          break;
+        case 38:
+          // 上
+          // 获取到div当前的top,再减去3px,赋值给div,style,top
+          divTop =
+            parseInt(document.defaultView.getComputedStyle(div)["top"]) -
+            3 +
+            "px";
+          div.style.top = divTop;
+          break;
+        case 39:
+          // 右
+          // 获取到div当前的left,再减去3px,赋值给div,style,left
+          divLeft =
+            parseInt(document.defaultView.getComputedStyle(div)["left"]) +
+            3 +
+            "px";
+          div.style.left = divLeft;
+          break;
+        case 40:
+          // 下
+          // 获取到div当前的top,再减去3px,赋值给div,style,top
+          divTop =
+            parseInt(document.defaultView.getComputedStyle(div)["top"]) +
+            3 +
+            "px";
+          div.style.top = divTop;
+          break;
+      }
+    };
+  </script>
+</html>

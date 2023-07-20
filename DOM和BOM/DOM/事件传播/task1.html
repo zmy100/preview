@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    // 找对象
+    var div = document.querySelector("div");
+    // 定义鼠标的当前位置
+    var currentX = 0;
+    var currentY = 0;
+    // 定义一个状态，只有为true的时候，才进行监控clientX,clientY
+    var flag = false;
+    div.onmousemove = function (e) {
+      if (flag) {
+        // 获取当前的left值，加上偏移值，就可以实现div的移动
+        div.style.left =
+          parseInt(document.defaultView.getComputedStyle(div)["left"]) +
+          (e.clientX - currentX) +
+          "px";
+        div.style.top =
+          parseInt(document.defaultView.getComputedStyle(div)["top"]) +
+          (e.clientY - currentY) +
+          "px";
+        //更新当前位置
+        currentX = e.clientX;
+        currentY = e.clientY;
+      }
+    };
+    // 鼠标按下，状态为true
+    div.onmousedown = function (e) {
+      flag = true;
+      //记录鼠标初始位置
+      currentX = e.clientX;
+      currentY = e.clientY;
+    };
+    //鼠标松开，状态为false
+    div.onmouseup = function () {
+      flag = false;
+    };
+  </script>
+</html>
