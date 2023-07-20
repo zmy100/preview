@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        padding: 200px;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+      button {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <br />
+    <br />
+    <button>变长</button>
+    <button>变宽</button>
+    <button>变绿</button>
+  </body>
+  <script>
+    // 找对象，一个div，三个按钮
+    var div = document.querySelector("div");
+    var btn1 = document.querySelector("button:nth-of-type(1)");
+    var btn2 = document.querySelector("button:nth-of-type(2)");
+    var btn3 = document.querySelector("button:nth-of-type(3)");
+    // 变长
+    btn1.onclick = function () {
+      div.style.height = "400px";
+    };
+    // 变宽
+    btn2.onclick = function () {
+      div.style.width = "400px";
+    };
+    // 变绿
+    btn3.onclick = function () {
+      div.style.backgroundColor = "green";
+    };
+  </script>
+</html>
