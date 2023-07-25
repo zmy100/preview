@@ -65,6 +65,56 @@
       <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
       <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
     </div>
-    <script></script>
+    <!-- 呼吸轮播图特效 -->
+    <script>
+      // 找对象
+      var leftbtn = document.getElementById("leftbtn");
+      var rightbtn = document.getElementById("rightbtn");
+      var liArray = document.querySelectorAll("ul>li");
+      // 当前图片索引
+      var currentLiNumber = 0;
+      // 上锁，默认开锁
+      var lock = false;
+      // 左按钮
+      leftbtn.onclick = function () {
+        // 如果上锁了，返回，不执行下面的代码
+        if (lock) {
+          return;
+        }
+        // 上锁
+        lock = true;
+        // 当前图片透明度变为0
+        liArray[currentLiNumber].style.opacity = "0";
+        currentLiNumber--;
+        // 如果已经是第一张，切到最后一张
+        if (currentLiNumber == -1) {
+          currentLiNumber = 4;
+        }
+        liArray[currentLiNumber].style.opacity = "1";
+        setTimeout(function () {
+          lock = false;
+        }, 1000);
+      };
+      // 右按钮
+      rightbtn.onclick = function () {
+        // 如果上锁了，返回，不执行下面的代码
+        if (lock) {
+          return;
+        }
+        // 上锁
+        lock = true;
+        // 当前图片透明度变为0
+        liArray[currentLiNumber].style.opacity = "0";
+        currentLiNumber++;
+        // 如果已经是最后一张，切到第一张
+        if (currentLiNumber == 5) {
+          currentLiNumber = 0;
+        }
+        liArray[currentLiNumber].style.opacity = "1";
+        setTimeout(function () {
+          lock = false;
+        }, 1000);
+      };
+    </script>
   </body>
 </html>
