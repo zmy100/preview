@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div.container {
+        width: 800px;
+        height: 1000px;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid orange;
+        border-radius: 15px;
+        position: relative;
+      }
+      div > img {
+        width: 750px;
+      }
+      div#bottom {
+        text-align: center;
+      }
+      button.left {
+        position: absolute;
+        left: 100px;
+        bottom: 20px;
+      }
+      button.right {
+        position: absolute;
+        right: 100px;
+        bottom: 20px;
+      }
+      #img-container {
+        overflow: hidden;
+        border-radius: 15px;
+        width: 750px;
+        height: 900px;
+        margin: 0px 25px 0 25px;
+      }
+      button {
+        width: 200px;
+        height: 50px;
+        outline: none;
+        cursor: pointer;
+      }
+      #info {
+        position: absolute;
+        left: 380px;
+        bottom: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="img-container">
+        <img id="image" src="./img/前女友们/01.jpeg" alt="" />
+      </div>
+      <div id="bottom">
+        <button id="left" disabled class="left">←上一张</button>
+        <span id="info">1/10</span>
+        <button id="right" class="right">下一张 →</button>
+      </div>
+    </div>
+    <!-- 前女友相册 -->
+    <script>
+      // 找对象
+      // 左按钮
+      var btn1 = document.getElementById("left");
+      // 右按钮
+      var btn2 = document.getElementById("right");
+      // 图片
+      var image = document.getElementById("image");
+
+      // 定义当前图片的序号,默认是第一张图片
+      var currentImageNumber = 1;
+
+      // 添加点击事件
+      // 点击左按钮
+      btn1.onclick = function () {
+        // 点击上一张的时候，下一张就应该能点了
+        btn2.disabled = false;
+        // 序号减1
+        currentImageNumber--;
+        // 点击更新图片信息
+        showInfo(currentImageNumber);
+        // 注意拼接字符串的时候，前面补0
+        var imagePath =
+          "./img/前女友们/" +
+          (currentImageNumber < 10
+            ? "0" + currentImageNumber
+            : currentImageNumber) +
+          ".jpeg";
+        // 算出来图片的名字，继而可以推断出图片的路径，修改图片元素的路径
+        image.src = imagePath;
+        // 如果图片序号数字小于1，左按钮就不能点了
+        if (currentImageNumber == 1) {
+          this.disabled = true;
+        }
+      };
+      // 点击右按钮
+      btn2.onclick = function () {
+        // 点击下一张的时候，上一张就应该能点了
+        btn1.disabled = false;
+        // 序号加1
+        currentImageNumber++;
+        // 点击更新图片信息
+        showInfo(currentImageNumber);
+        // 注意拼接字符串的时候，前面补0
+        var imagePath =
+          "./img/前女友们/" +
+          (currentImageNumber < 10
+            ? "0" + currentImageNumber
+            : currentImageNumber) +
+          ".jpeg";
+        // 算出来图片的名字，继而可以推断出图片的路径，修改图片元素的路径
+        image.src = imagePath;
+        // 如果图片序号数字超过10，右按钮就不能点了
+        if (currentImageNumber == 10) {
+          this.disabled = true;
+        }
+      };
+
+      function showInfo(currentImageNumber) {
+        // 找元素
+        var info = document.getElementById("info");
+        // 修改内容
+        info.innerHTML = currentImageNumber + "/10";
+      }
+    </script>
+  </body>
+</html>
