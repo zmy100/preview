@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel ul {
+        list-style: none;
+        width: 6000px;
+        position: relative;
+        left: 0px;
+        transition: left 0.5s ease 0s;
+      }
+      .carousel ul li {
+        float: left;
+      }
+      .carousel .leftbtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+      .carousel .rightbtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul id="list">
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+        <li><img src="images/beijing/1.jpg" alt="" /></li>
+        <li><img src="images/beijing/2.jpg" alt="" /></li>
+        <li><img src="images/beijing/3.jpg" alt="" /></li>
+        <li><img src="images/beijing/4.jpg" alt="" /></li>
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+      </ul>
+      <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
+      <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
+    </div>
+    <script>
+      // 找对象
+      // 找按钮
+      var leftbtn = document.getElementById("leftbtn");
+      var rightbtn = document.getElementById("rightbtn");
+      // 找ul标签
+      var ul = document.getElementById("list");
+      // 找轮播图
+      var carousel = document.getElementsByClassName("carousel")[0];
+      // 定义变量，记录当前位置
+      var currentPosition = 0;
+      // 上锁
+      var lock = false;
+      // 定义定时器标记
+      var timer = null;
+      // 添加左按钮点击事件
+      leftbtn.onclick = function () {
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 如果到最后一张图片的位置，返回到第一张图片的位置
+        if (currentPosition === 0) {
+          // 关闭动画效果
+          ul.style.transition = "none";
+          currentPosition = -3250;
+          ul.style.left = currentPosition + "px";
+        }
+        // 给浏览器一段时间来处理关闭过渡后的状态，然后再启用过渡
+        setTimeout(function () {
+          // 开启动画效果
+          ul.style.transition = "left 0.5s ease 0s";
+          // 点击一次右按钮，位置左移650px
+          currentPosition += 650;
+          ul.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+      // 添加右按钮点击事件
+      rightbtn.onclick = function () {
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 如果到最后一张图片的位置，返回到第一张图片的位置
+        if (currentPosition === -3250) {
+          // 关闭动画效果
+          ul.style.transition = "none";
+          currentPosition = 0;
+          ul.style.left = currentPosition + "px";
+        }
+        // 给浏览器一段时间来处理关闭过渡后的状态，然后再启用过渡
+        setTimeout(function () {
+          // 开启动画效果
+          ul.style.transition = "left 0.5s ease 0s";
+          // 点击一次右按钮，位置左移650px
+          currentPosition -= 650;
+          ul.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+      // 每隔2秒，自动切换下一张图片
+      timer = setInterval(function () {
+        rightbtn.click();
+      }, 2000);
+      // 鼠标移入，停止自动切换
+      carousel.onmouseenter = function () {
+        clearInterval(timer);
+      };
+      // 鼠标移出，开始自动切换
+      carousel.onmouseleave = function () {
+        // 关闭定时器
+        clearInterval(timer);
+        // 重新开启定时器
+        timer = setInterval(function () {
+          rightbtn.click();
+        }, 2000);
+      };
+    </script>
+  </body>
+</html>
