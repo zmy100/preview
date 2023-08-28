@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>innerHTML</title>
+  </head>
+  <body>
+    <div>前端技术</div>
+    <div>IOS技术</div>
+    <div>安卓技术</div>
+    <div>JAVA技术</div>
+    <script>
+      //  找对象
+      var divArray = document.getElementsByTagName("div");
+      // 遍历所有的idv
+      for (var i = 0; i < divArray.length; i++) {
+        // 添加文本内容
+        divArray[i].innerHTML = "我要学习最牛叉的" + divArray[i].innerHTML;
+      }
+    </script>
+  </body>
+</html>
