@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div.container {
+        margin: 50px auto;
+        width: 520px;
+        height: 280px;
+        position: relative;
+      }
+      div.container > img.mix {
+        width: 100%;
+      }
+      div.container > img.arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -18px;
+      }
+      div.container > img.left {
+        left: 0;
+        border-radius: 0 36px 36px 0;
+      }
+      div.container > img.right {
+        right: 0;
+        border-radius: 36px 0 0 36px;
+      }
+      ul {
+        height: 13px;
+        width: 65px;
+        /* background-color: olivedrab; */
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        margin-left: -33px;
+      }
+      ul > li {
+        float: left;
+        width: 9px;
+        height: 9px;
+        margin: 2px;
+        list-style: none;
+        background-color: #b7b7b7;
+        border-radius: 50%;
+      }
+      ul > li.current {
+        background-color: #ff4400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="mix" src="./images/mix.jpg" alt="" />
+      <img class="arrow left" src="./images/left.png" alt="" />
+      <img class="arrow right" src="./images/right.png" alt="" />
+      <ul>
+        <li class="current"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

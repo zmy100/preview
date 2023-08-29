@@ -1,0 +1,16 @@
+.color-red {
+  color: red;
+}
+.color-blue {
+  color: blue;
+}
+.color-orange {
+  color: orange;
+}
+.color-green {
+  color: green;
+}
+
+span {
+  font-size: 100px;
+}

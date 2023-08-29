@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        color: rgb(241, 243, 245);
+      }
+      .container {
+        width: 1212px;
+        margin: 0 auto;
+      }
+      div.title {
+        height: 64px;
+        /* background-color: olivedrab; */
+        line-height: 38px;
+        text-align: center;
+        color: #b0b1b2;
+      }
+      div.products {
+        height: 786px;
+        /* background-color: orangered; */
+      }
+      .fl {
+        float: left;
+      }
+      .flr {
+        float: right;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        margin-right: 38px;
+        font-size: 18px;
+      }
+      a:hover {
+        color: #cf0a2c;
+      }
+      a.current {
+        color: black;
+        font-size: 24px;
+      }
+      a.more {
+        font-size: 14px;
+        margin-right: 0;
+      }
+      a.more:hover {
+        color: #6c6d6e;
+      }
+      div.item {
+        width: 291px;
+        height: 385px;
+        background-color: olive;
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+      div.item:nth-child(4),
+      div.item:last-child {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title container">
+      <div class="fl"><a href="#" class="current">电脑</a></div>
+      <div class="fl"><a href="#">笔记本</a></div>
+      <div class="fl"><a href="#">精品平板</a></div>
+      <div class="fl"><a href="#">台式机</a></div>
+      <div class="fl"><a href="#">显示器</a></div>
+      <div class="fl"><a href="#">电脑配件</a></div>
+      <div class="flr"><a href="#" class="more">更多 &gt;</a></div>
+    </div>
+    <div class="products container">
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+      <div class="item fl"></div>
+    </div>
+  </body>
+</html>

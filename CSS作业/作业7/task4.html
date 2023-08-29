@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        color: #f1f3f5;
+      }
+      .container {
+        width: 1212px;
+        margin: 0 auto;
+      }
+      div.title {
+        height: 64px;
+        /* background-color: olivedrab; */
+        line-height: 38px;
+        text-align: center;
+        color: #b0b1b2;
+      }
+      div.products {
+        height: 786px;
+        /* background-color: orangered; */
+      }
+      .fl {
+        float: left;
+      }
+      .flr {
+        float: right;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        margin-right: 38px;
+        font-size: 18px;
+      }
+      a:hover {
+        color: #cf0a2c;
+      }
+      a.current {
+        color: black;
+        font-size: 24px;
+      }
+      a.more {
+        font-size: 14px;
+        margin-right: 0;
+      }
+      a.more:hover {
+        color: #6c6d6e;
+      }
+      div.item {
+        width: 291px;
+        height: 385px;
+        background-color: #ffffff;
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+      div.item:nth-child(4),
+      div.item:last-child {
+        margin-right: 0;
+      }
+      div.item img {
+        width: 180px;
+        height: 193px;
+        margin-left: 50px;
+      }
+      span.red-tag {
+        background-image: linear-gradient(
+          1.5708rad,
+          rgb(207, 10, 44),
+          rgb(249, 42, 74)
+        );
+        width: 48px;
+        height: 16px;
+        padding: 0 4px;
+        margin-right: 4px;
+        font-size: 12px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: #fff;
+      }
+
+      div.item p {
+        text-align: center;
+        color: #000;
+      }
+      p.title {
+        font-size: 14px;
+        margin-top: 40px;
+      }
+      p.desc {
+        font-size: 13px;
+        margin-top: 5px;
+      }
+      span.desc-tag {
+        color: rgb(207, 10, 44);
+        font-size: 12px;
+        border: 1px solid rgba(226, 0, 36, 0.4);
+      }
+      span.black-tag {
+        color: rgb(0, 0, 0);
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+      }
+      p.price {
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title container">
+      <div class="fl"><a href="#" class="current">电脑</a></div>
+      <div class="fl"><a href="#">笔记本</a></div>
+      <div class="fl"><a href="#">精品平板</a></div>
+      <div class="fl"><a href="#">台式机</a></div>
+      <div class="fl"><a href="#">显示器</a></div>
+      <div class="fl"><a href="#">电脑配件</a></div>
+      <div class="flr"><a href="#" class="more">更多 &gt;</a></div>
+    </div>
+    <div class="products container">
+      <div class="item fl">
+        <img
+          src="https://res1.vmallres.com/pimages/uomcdn/CN/pms/202305/gbom/6941487298976/800_800_793834E1893A86332F14D5CEB6CF6A91mp.png"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>HUAWEI MateBook X Pro
+        </p>
+        <p class="desc">微绒金属机身|3.1K原色全面屏</p>
+        <p>
+          <span class="desc-tag">享12期0分期利息 至高32GB+2TB</span>
+        </p>
+        <p class="price">￥13999</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res8.vmallres.com/pimages/uomcdn/CN/pms/202305/gbom/6941487298518/800_800_872FCF1227134D624F98DA1C6636484Bmp.png"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>HUAWEI MateBook 16s
+        </p>
+        <p class="desc">2.5K高色准触控屏|13代酷睿i9标压处理器</p>
+        <p>
+          <span class="black-tag">12期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥9999</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res5.vmallres.com/pimages/uomcdn/CN/pms/202305/gbom/6941487299614/800_800_5B07C33C7D028A83A2883787DDDF16AEmp.png"
+          alt=""
+        />
+        <p class="title"><span class="red-tag">新品</span>HUAWEI MateBook 14</p>
+        <p class="desc">2K触控全面屏|13代酷睿处理器</p>
+        <p>
+          <span class="desc-tag">限时直降200元</span>
+          <span class="black-tag">3期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥5499</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res.vmallres.com/uomcdn/CN/cms/202207/F94A50F90147F827D72F70FC1C90A104.png"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>MateBook X Pro 微绒典藏版
+        </p>
+        <p class="desc">微绒金属机身|12代酷睿处理器</p>
+        <p>
+          <span class="desc-tag">限时直降1500元</span>
+          <span class="black-tag">12期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥10499</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res.vmallres.com/cmscdn/CN/2022-09/5329cfd358e44601a6adeea655a079d7.jpg"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>HUAWEI MateBook 14s
+        </p>
+        <p class="desc">12代酷睿标压|14.2英寸触控屏</p>
+        <p>
+          <span class="desc-tag">限时直降500元</span>
+          <span class="black-tag">3期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+
+        <p class="price">¥6299</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res4.vmallres.com/pimages/uomcdn/CN/pms/202207/gbom/6941487262915/800_800_0734AA176A25064EDB37B01BF0821362mp_tds.png"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>MateBook X Pro 12代酷睿
+        </p>
+        <p class="desc">3.1k原色全面屏|12代酷睿处理器</p>
+        <p>
+          <span class="desc-tag">限时直降1000元</span>
+          <span class="black-tag">12期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥8499</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res1.vmallres.com/pimages/uomcdn/CN/pms/202205/gbom/6941487258161/800_800_0E4244A9C3C2401EA28A6011C8D468FDmp_tds.png"
+          alt=""
+        />
+        <p class="title"><span class="red-tag">新品</span>MateBook D 15</p>
+        <p class="desc">15.6"护眼全面屏</p>
+        <p>
+          <span class="desc-tag">限时直降200元</span>
+          <span class="black-tag">3期0分期利息</span>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥4199</p>
+      </div>
+      <div class="item fl">
+        <img
+          src="https://res5.vmallres.com/pimages/uomcdn/CN/pms/202205/gbom/6941487238989/800_800_F2571DA695EB2F69BAF71F11D320E33Cmp_tds.png"
+          alt=""
+        />
+        <p class="title">
+          <span class="red-tag">新品</span>MateBook E 12.6英寸
+        </p>
+        <p class="desc">二合一笔记本|11代酷睿</p>
+        <p>
+          <span class="black-tag">赠积分</span>
+        </p>
+        <p class="price">¥6499</p>
+      </div>
+    </div>
+  </body>
+</html>

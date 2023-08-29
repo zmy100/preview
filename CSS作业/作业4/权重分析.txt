@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="keywords" content="关键词1,关键词2,关键词3" />
+		<meta name="description" content="对网站的描述" />
+		<title>第1题</title>
+		<style type="text/css">
+			/* 2-0-0 √ */
+			#father #son {
+				color: blue;
+			}
+			/* 1-1-1 */
+			#father p.c2 {
+				color: black;
+			}
+			/* 0-2-2 */
+			div.c1 p.c2 {
+				color: red;
+			}
+			/* 1-0-0 */
+			#father {
+				color: green !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father" class="c1">
+			<p id="son" class="c2">试问这行字体是什么颜色的？</p>
+		</div>
+	</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="keywords" content="关键词1,关键词2,关键词3" />
+    <meta name="description" content="对网站的描述" />
+    <title>第2题</title>
+    <style type="text/css">
+      /* 1-0-0 */
+      /* null */
+      #father {
+        color: red;
+      }
+      /* 0-0-1  √*/
+      p {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="father">
+      <p>试问这行字体是什么颜色的？</p>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="keywords" content="关键词1,关键词2,关键词3" />
+    <meta name="description" content="对网站的描述" />
+    <title>第3题</title>
+    <style type="text/css">
+      /* 0-0-2 */
+      div p {
+        color: red;
+      }
+      /* 1-0-0 */
+	  /* null */
+      #father {
+        color: red;
+      }
+      /* 0-1-1 √*/
+      p.c2 {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="father" class="c1">
+      <p class="c2">试问这行字体是什么颜色的？</p>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="keywords" content="关键词1,关键词2,关键词3" />
+    <meta name="description" content="对网站的描述" />
+    <title>第4题</title>
+    <style type="text/css">
+      /* 0-0-2  √*/
+      div div {
+        color: blue;
+      }
+      /* 0-0-1 */
+      div {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>试问这行字体是什么颜色的？</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>第5题</title>
+    <style type="text/css">
+      /* 0-0-12 */
+      div div div div div div div div div div div div {
+        color: red;
+      }
+	  /* 0-1-0 √ */
+      .me {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <div>
+                          <div class="me">试问这行文字是什么颜色的</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>第6题</title>
+    <style type="text/css">
+      /* 0-2-1 */
+      .c1 .c2 div {
+        color: blue;
+      }
+      /* 1-0-1 */
+      div #box3 {
+        color: green;
+      }
+      /* 1-0-1 √ */
+      #box1 div {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" class="c1">
+      <div id="box2" class="c2">
+        <div id="box3" class="c3">文字</div>
+      </div>
+    </div>
+  </body>
+</html>

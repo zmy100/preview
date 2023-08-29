@@ -1,0 +1,21 @@
+
+.bg-andiord {
+    width: 17px; height: 21px;
+    background: url('css_sprites.png') -30px -1px;
+}
+
+.bg-iphone {
+    width: 16px; height: 20px;
+    background: url('css_sprites.png') -12px -1px;
+}
+
+.bg-bg1 {
+    width: 61px; height: 24px;
+    background: url('css_sprites.png') -49px -1px;
+}
+
+
+.bg-icon {
+    width: 9px; height: 12px;
+    background: url('css_sprites.png') -1px -1px;
+}

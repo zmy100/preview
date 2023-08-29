@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      body {
+        background-color: #f7f7f7;
+      }
+      div.title {
+        height: 87px;
+        /* background-color: olivedrab; */
+        text-align: center;
+        line-height: 87px;
+        font-size: 24px;
+        color: #333;
+      }
+      div.products {
+        height: 770px;
+        background-color: orangered;
+      }
+      div.products div {
+        margin-right: 9.3px;
+        margin-bottom: 10px;
+      }
+      div.products div:nth-child(3),
+      div.products div:last-child {
+        margin-right: 0;
+      }
+      .normal {
+        width: 293px;
+        height: 380px;
+        background-color: olive;
+      }
+      .big {
+        width: 595px;
+        height: 380px;
+        background-color: navy;
+      }
+      .fl {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title container">精品手机</div>
+    <div class="products container">
+      <div class="big fl"></div>
+      <div class="normal fl"></div>
+      <div class="normal fl"></div>
+      <div class="normal fl"></div>
+      <div class="normal fl"></div>
+      <div class="normal fl"></div>
+      <div class="normal fl"></div>
+    </div>
+  </body>
+</html>
