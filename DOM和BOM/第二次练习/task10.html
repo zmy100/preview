@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <input type="text" id="num1" />
+    <select id="operate">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text" id="num2" />
+    <input type="button" value=" = " id="btn" />
+    <input type="text" id="result" />
+  </body>
+  <script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+      var num1 = parseInt(document.getElementById("num1").value);
+      var num2 = parseInt(document.getElementById("num2").value);
+      var select = document.getElementById("operate").value;
+      var result = document.getElementById("result");
+
+      var num3 = 0;
+      switch (select) {
+        case "+":
+          num3 = num1 + num2;
+          break;
+
+        case "-":
+          num3 = num1 - num2;
+          break;
+
+        case "*":
+          num3 = num1 * num2;
+          break;
+
+        case "/":
+          num3 = num1 / num2;
+          break;
+      }
+      result.value = num3;
+    };
+  </script>
+</html>
