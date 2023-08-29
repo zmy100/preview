@@ -18,12 +18,63 @@
         left: 200px;
         top: 200px;
       }
+      body {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
     </style>
   </head>
   <body>
     <div></div>
   </body>
   <script>
-    
+    // 找对象
+    var div = document.querySelector("div");
+    var body = document.body;
+
+    // 定义鼠标初始位置
+    var mouseX = 0;
+    var mouseY = 0;
+    // 标记是否可以移动
+    var isMove = false;
+    // div上绑定鼠标按下事件
+    div.onmousedown = function (event) {
+      // 注意添加event参数
+      // 记录鼠标的坐标
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      // 标记可以移动
+      isMove = true;
+    };
+    // 用body来处理鼠标抬起事件，而不是div
+    body.onmouseup = function () {
+      isMove = false;
+    };
+    // 监控鼠标在body上的移动
+    body.onmousemove = function (event) {
+      // 注意添加event参数
+      // 判断是否可以移动
+      if (!isMove) {
+        return;
+      }
+      // 计算鼠标移动的距离
+      var moveX = event.clientX - mouseX;
+      var moveY = event.clientY - mouseY;
+      // 记录鼠标的坐标
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      // 修改div的位置
+      div.style.left =
+        parseInt(document.defaultView.getComputedStyle(div)["left"]) +
+        moveX +
+        "px";
+      div.style.top =
+        parseInt(document.defaultView.getComputedStyle(div)["top"]) +
+        moveY +
+        "px";
+    };
   </script>
 </html>
