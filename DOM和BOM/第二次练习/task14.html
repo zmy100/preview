@@ -23,5 +23,52 @@
   <body>
     <div></div>
   </body>
-  <script></script>
+  <script>
+    // 找对象
+    var div = document.querySelector("div");
+    // 定义空变量，记录初始位置
+    var divTop = 0;
+    var divLeft = 0;
+    // 键盘按下事件
+    document.onkeydown = function (e) {
+      switch (e.keyCode) {
+        case 37:
+          // 左
+          // 获取到div当前的left,再减去3px,赋值给div.style.left
+          divLeft =
+            parseInt(document.defaultView.getComputedStyle(div)["left"]) -
+            3 +
+            "px";
+          div.style.left = divLeft;
+          break;
+        case 38:
+          // 上
+          // 获取到div当前的top,再减去3px,赋值给div.style.top
+          divTop =
+            parseInt(document.defaultView.getComputedStyle(div)["top"]) -
+            3 +
+            "px";
+          div.style.top = divTop;
+          break;
+        case 39:
+          // 右
+          // 获取到div当前的left,再加上3px,赋值给div.style.left
+          divLeft =
+            parseInt(document.defaultView.getComputedStyle(div)["left"]) +
+            3 +
+            "px";
+          div.style.left = divLeft;
+          break;
+        case 40:
+          // 下
+          // 获取到div当前的top,再加上3px,赋值给div.style.top
+          divTop =
+            parseInt(document.defaultView.getComputedStyle(div)["top"]) +
+            3 +
+            "px";
+          div.style.top = divTop;
+          break;
+      }
+    };
+  </script>
 </html>
