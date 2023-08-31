@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 引入字体图标的css -->
+    <link rel="stylesheet" href="css/iconfont.css" />
+  </head>
+  <body>
+    <div class="p-5">
+      <div class="container">
+        <div class="card" style="box-shadow: black 5px 3px 3px">
+          <div class="row justify-content-between">
+            <div class="col-4">
+              <div class="card-img">
+                <img
+                  decoding="async"
+                  src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202307241636623.png"
+                  alt=""
+                  class="img-rounded"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card-body">
+                <h2
+                  class="text-center text-info"
+                  style="text-shadow: black 5px 3px 3px"
+                >
+                  用户登录
+                </h2>
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                      >账号
+                      <span class="glyphicon glyphicon-user"></span>
+                    </label>
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="please input account"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">密码</label>
+                    <span class="iconfont icon-mima"></span>
+                    <div class="col-sm-10">
+                      <input
+                        type="password"
+                        name=""
+                        id=""
+                        class="form-control"
+                        placeholder="please input password"
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block"
+                      >
+                        登录
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
