@@ -15,17 +15,21 @@
         border: 1px solid #000;
         margin: 50px auto;
         position: relative;
-        overflow: hidden;
       }
       .carousel ul {
         list-style: none;
-        width: 6000px;
-        position: relative;
-        left: 0px;
-        transition: left 0.5s ease 0s;
       }
       .carousel ul li {
-        float: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 透明度都是0 */
+        opacity: 0;
+        transition: opacity 1s ease 0s;
+      }
+      /* 只有第一张透明度是1 */
+      .carousel ul li:first-child {
+        opacity: 1;
       }
       .carousel .leftbtn {
         position: absolute;
@@ -62,7 +66,57 @@
       <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
     </div>
     <script>
-        
+      // 找对象
+      var leftbtn = document.getElementById("leftbtn");
+      var rightbtn = document.getElementById("rightbtn");
+      var liArray = document.querySelectorAll("ul li");
+
+      // 定义一个变量，记录当前图片的位置/索引
+      var currentLiNumber = 0;
+      // 上锁
+      var lock = false;
+      // 左按钮点击事件
+      leftbtn.onclick = function () {
+        // 上锁
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 当前图片透明度变为0
+        liArray[currentLiNumber].style.opacity = "0";
+        currentLiNumber--;
+        // 如果是第一张图片
+        if (currentLiNumber == -1) {
+          // 跳到最后一张图片
+          currentLiNumber = 4;
+        }
+        // 下一张图片透明度变为1
+        liArray[currentLiNumber].style.opacity = "1";
+        setTimeout(function () {
+          lock = false;
+        }, 1000);
+      };
+      // 右按钮点击事件
+      rightbtn.onclick = function () {
+        // 上锁
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 当前图片透明度变为0
+        liArray[currentLiNumber].style.opacity = "0";
+        currentLiNumber++;
+        // 如果是最后一张图片
+        if (currentLiNumber == 5) {
+          // 跳到第一张图片
+          currentLiNumber = 0;
+        }
+        // 下一张图片透明度变为1
+        liArray[currentLiNumber].style.opacity = "1";
+        setTimeout(function () {
+          lock = false;
+        }, 1000);
+      };
     </script>
   </body>
 </html>
