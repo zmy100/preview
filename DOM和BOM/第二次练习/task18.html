@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel ul {
+        list-style: none;
+        width: 6000px;
+        position: relative;
+        left: 0px;
+        transition: left 0.5s ease 0s;
+      }
+      .carousel ul li {
+        float: left;
+      }
+      .carousel .leftbtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+      .carousel .rightbtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul id="list">
+        <li><img src="../DOM/轮播图/images/beijing/0.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/1.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/2.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/3.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/4.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/0.jpg" alt="" /></li>
+      </ul>
+      <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
+      <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
+    </div>
+    <script>
+      // 找对象
+      var list = document.getElementById("list");
+      var leftbtn = document.getElementById("leftbtn");
+      var rightbtn = document.getElementById("rightbtn");
+      var carousel = document.getElementsByClassName("carousel")[0];
+      // 定义一个变量，纪录当前的位置
+      var currentPosition = 0;
+      // 上锁
+      var lock = false;
+      var timer = null;
+      // 左按钮添加点击事件
+      leftbtn.onclick = function () {
+        // 上锁
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 如果是第一张图片的位置
+        if (currentPosition === 0) {
+          // 关闭动画
+          list.style.transition = "none";
+          // 瞬间回到最后一张图片的位置
+          currentPosition = -3250;
+          list.style.left = currentPosition + "px";
+        }
+        setTimeout(function () {
+          // 开启动画
+          list.style.transition = "left 0.5s ease 0s";
+          currentPosition += 650;
+          list.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+      // 右按钮添加点击事件
+      rightbtn.onclick = function () {
+        // 上锁
+        if (lock) {
+          return;
+        }
+        lock = true;
+        // 如果是最后一张图片的位置
+        if (currentPosition === -3250) {
+          // 关闭动画
+          list.style.transition = "none";
+          // 瞬间回到第一张图片的位置
+          currentPosition = 0;
+          list.style.left = currentPosition + "px";
+        }
+        setTimeout(function () {
+          // 开启动画
+          list.style.transition = "left 0.5s ease 0s";
+          currentPosition -= 650;
+          list.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+      timer = setInterval(function () {
+        rightbtn.click();
+      }, 2000);
+      // 鼠标移入，停止自动切换
+      carousel.onmouseenter = function () {
+        clearInterval(timer);
+      };
+      carousel.onmouseout = function () {
+        // 关闭定时器
+        clearInterval(timer);
+        // 重新开启定时器
+        timer = setInterval(function () {
+          rightbtn.click();
+        }, 2000);
+      };
+    </script>
+  </body>
+</html>

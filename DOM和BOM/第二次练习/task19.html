@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel ul {
+        list-style: none;
+        width: 6000px;
+        position: relative;
+        left: 0px;
+        transition: left 0.5s ease 0s;
+      }
+      .carousel ul li {
+        float: left;
+      }
+      .carousel .leftbtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+      .carousel .rightbtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul id="list">
+        <li><img src="../DOM/轮播图/images/beijing/0.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/1.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/2.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/3.jpg" alt="" /></li>
+        <li><img src="../DOM/轮播图/images/beijing/4.jpg" alt="" /></li>
+      </ul>
+      <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
+      <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
+    </div>
+    <script>
+        
+    </script>
+  </body>
+</html>
