@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 清除内外边距 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div.header {
+        width: 100vw;
+        height: 16.8vw;
+        background-color: #e12e31;
+        /* flex弹性布局 */
+        display: flex;
+        /* 水平布局 */
+        justify-content: space-evenly;
+        /* 垂直居中 */
+        align-items: center;
+      }
+      .scan {
+        width: 8.5333vw;
+        height: 8.5333vw;
+      }
+      div.center {
+        width: 70.6667vw;
+        height: 10.6667vw;
+        background-color: #ffffff;
+        border-radius: 10.6667vw;
+        color: #777777;
+        font-size: 2.9333vw;
+        /* flex弹性布局 */
+        display: flex;
+        /* 垂直居中 */
+        align-items: center;
+      }
+      .search {
+        width: 5.3333vw;
+        height: 5.3333vw;
+        margin: 0 2.6667vw;
+      }
+      .msg {
+        width: 10.6667vw;
+        height: 9.6vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716240.png"
+        alt=""
+        class="scan"
+      />
+      <div class="center">
+        <img
+          src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716142.png"
+          alt=""
+          class="search"
+        />
+        开学季有礼，好货5折起
+      </div>
+      <img
+        src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716927.png"
+        alt=""
+        class="msg"
+      />
+    </div>
+  </body>
+</html>

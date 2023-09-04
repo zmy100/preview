@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 清除内外边距 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 10px;
+      }
+      div.header {
+        width: 75rem;
+        height: 12.6rem;
+        background-color: #e12e31;
+        /* flex弹性布局 */
+        display: flex;
+        /* 水平布局 */
+        justify-content: space-evenly;
+        /* 垂直居中 */
+        align-items: center;
+      }
+      .scan {
+        width: 6.4rem;
+        height: 6.4rem;
+      }
+      div.center {
+        width: 53rem;
+        height: 8rem;
+        background-color: #ffffff;
+        border-radius: 8rem;
+        color: #777777;
+        font-size: 2.2rem;
+        /* flex弹性布局 */
+        display: flex;
+        /* 垂直居中 */
+        align-items: center;
+      }
+      .search {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 2rem;
+      }
+      .msg {
+        width: 8rem;
+        height: 7.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716240.png"
+        alt=""
+        class="scan"
+      />
+      <div class="center">
+        <img
+          src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716142.png"
+          alt=""
+          class="search"
+        />
+        开学季有礼，好货5折起
+      </div>
+      <img
+        src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112101716927.png"
+        alt=""
+        class="msg"
+      />
+    </div>
+    <script>
+      // 构造函数
+      function setHtmlFontSize() {
+        // 获取窗口尺寸
+        const clientWidth =
+          document.documentElement.clientWidth ||
+          window.innerWidth ||
+          document.documentElement.getBoundingClientRect().width;
+        // 计算html的字体大小
+        const htmlFontSize = clientWidth / 75 + "px";
+        // 修改html的字体大小
+        document.documentElement.style.fontSize = htmlFontSize;
+      }
+      // 调用函数
+      window.onresize = setHtmlFontSize;
+    </script>
+  </body>
+</html>
