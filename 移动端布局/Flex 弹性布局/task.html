@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 清除内外边距 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div.header {
+        height: 80px;
+        background-color: red;
+      }
+      div.bottom {
+        height: 80px;
+        background-color: yellow;
+      }
+      div.main {
+        background-color: gray;
+        flex-grow: 1;
+      }
+      div.nav {
+        width: 150px;
+        background-color: green;
+        order: -1;
+      }
+      div.side {
+        width: 150px;
+        background-color: lightblue;
+      }
+      /* body加flex布局 */
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      /* div.body加flex布局 */
+      div.body {
+        display: flex;
+        flex-grow: 1;
+      }
+      /* 设置文字垂直水平居中 */
+      .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 使用 flex 实现圣杯布局 -->
+    <div class="header flex-center">头部</div>
+    <div class="body">
+      <div class="main flex-center">主体部分</div>
+      <div class="nav flex-center">导航</div>
+      <div class="side flex-center">侧栏</div>
+    </div>
+    <div class="bottom flex-center">底部</div>
+  </body>
+</html>
