@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div></div>
+    <script>
+      // 获取div
+      const div = document.querySelector("div");
+      // 添加开始触摸事件
+      div.ontouchstart = function () {
+        this.style.backgroundColor = "green";
+      };
+      // 添加触摸移动事件
+      div.ontouchmove = function () {
+        this.style.backgroundColor = "blue";
+      };
+      // 添加触摸结束事件
+      div.ontouchend = function () {
+        this.style.backgroundColor = "pink";
+      };
+      div.ontouchcancel = function () {
+        this.style.backgroundColor = "pink";
+      };
+    </script>
+  </body>
+</html>
