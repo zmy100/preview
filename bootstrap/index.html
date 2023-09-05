@@ -1,27 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Bootstrap demo</title>
-		<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet" />
-		<style>
-			div.row {
-				border: 1px solid #000;
-				height: 100px;
-			}
-			div.row > div {
-				border: 1px solid red;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-2">col-1</div>
-				<div class="col-2">col-2</div>
-			</div>
-		</div>
-		<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 头部 -->
+    <nav class="navbar bg-dark navbar-dark p-3 navbar-expand-lg">
+      <div class="container">
+        <a href="#" class="navbar-brand">JK</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="" class="nav-link">介绍</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">内容</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 中间区域 -->
+    <div class="p-5 text-center border-bottom">
+      <h1>Bootstrap 教学视频</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead m-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa fugit
+          veritatis, eveniet labore praesentium soluta deserunt libero? Qui
+          corporis eveniet officiis adipisci, voluptas commodi dignissimos
+          ullam. Voluptatibus error possimus quisquam.
+        </p>
+        <button class="btn btn-primary btn-lg">查看更多</button>
+      </div>
+    </div>
+    <!-- 卡片 -->
+    <div class="p-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg">
+            <div class="card shadow-lg">
+              <img
+                src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202307241636623.png"
+                alt=""
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">我的博客</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Harum voluptatum aut esse sed minus nemo dignissimos
+                  blanditiis sint nulla non, rerum magni? Adipisci perspiciatis
+                  sunt ex perferendis ullam incidunt expedita?
+                </p>
+                <button class="btn btn-primary">进入</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card shadow-lg">
+              <img
+                src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202307241636623.png"
+                alt=""
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">我的博客</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Harum voluptatum aut esse sed minus nemo dignissimos
+                  blanditiis sint nulla non, rerum magni? Adipisci perspiciatis
+                  sunt ex perferendis ullam incidunt expedita?
+                </p>
+                <button class="btn btn-primary">进入</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card shadow-lg">
+              <img
+                src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202307241636623.png"
+                alt=""
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">我的博客</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Harum voluptatum aut esse sed minus nemo dignissimos
+                  blanditiis sint nulla non, rerum magni? Adipisci perspiciatis
+                  sunt ex perferendis ullam incidunt expedita?
+                </p>
+                <button class="btn btn-primary">进入</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 底部区域 -->
+    <footer class="p-4 border-top">
+      <div class="container align-item-center justify-content-between d-flex">
+        <p class="mb-0 align-self-center text-muted">
+          &copy; 2023 JK.All rights reserved.
+        </p>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-muted">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-muted">关于 JK</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
