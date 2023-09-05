@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 80px 1fr 80px;
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-areas:
+          "header header header"
+          "nav main side"
+          "footer footer footer";
+      }
+      p {
+        display: grid;
+        place-content: center;
+        font-weight: bold;
+      }
+      p:nth-child(1) {
+        background-color: red;
+        grid-area: header;
+      }
+      p:nth-child(2) {
+        background-color: gray;
+        grid-area: main;
+      }
+      p:nth-child(3) {
+        background-color: green;
+        grid-area: nav;
+      }
+      p:nth-child(4) {
+        background-color: lightblue;
+        grid-area: side;
+      }
+      p:nth-child(5) {
+        background-color: yellow;
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>头部</p>
+      <p>主体部分</p>
+      <p>导航</p>
+      <p>侧边栏</p>
+      <p>底部</p>
+    </div>
+  </body>
+</html>
