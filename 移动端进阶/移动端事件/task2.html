@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    // 找对象
+    const div = document.querySelector("div");
+    // 定义一个函数
+    function drag(element) {
+      // 定义几个变量，存储位置
+      // 初始位置
+      const startPosition = {
+        x: 0,
+        y: 0,
+      };
+      // 移动距离
+      const moveDistance = {
+        x: 0,
+        y: 0,
+      };
+      // 鼠标最近一次点击位置
+      const lastPointer = {
+        x: 0,
+        y: 0,
+      };
+      // 手指按到屏幕
+      element.ontouchstart = function (evt) {
+        const touch = evt.changedTouches[0];
+        lastPointer.x = touch.pageX;
+        lastPointer.y = touch.pageY;
+      };
+      // 手指在屏幕上移动
+      element.ontouchmove = function (evt) {
+        const touch = evt.changedTouches[0];
+        moveDistance.x = startPosition.x + touch.pageX - lastPointer.x;
+        moveDistance.y = startPosition.y + touch.pageY - lastPointer.y;
+        element.style.transform = `translate(${moveDistance.x}px,${moveDistance.y}px)`;
+      };
+      // 手指抬起, 离开屏幕
+      element.ontouchend = function (evt) {
+        startPosition.x = moveDistance.x;
+        startPosition.y = moveDistance.y;
+      };
+      // 手指还在屏幕上的时候, 发生了一些意外情况
+      element.ontouchcancel = function () {
+        startPosition.x = moveDistance.x;
+        startPosition.y = moveDistance.y;
+      };
+    }
+    // 调用函数
+    drag(div);
+  </script>
+</html>
