@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: olivedrab;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    function slide(element) {
+      // 初始位置信息
+      const start = {
+        x: 0,
+        y: 0,
+        time: 0,
+      };
+      // 结束位置信息
+      const end = {
+        x: 0,
+        y: 0,
+        time: 0,
+      };
+
+      element.ontouchstart = function (evt) {
+        // 清除移动端默认事件
+        evt.preventDefault();
+      };
+      element.onpointerdown = function (evt) {
+        // 获取起始点坐标和点击事件
+        start.x = evt.pageX;
+        start.y = evt.pageY;
+        start.time = new Date().getTime();
+        console.log(getDirection(start, end));
+        console.log(start);
+      };
+      element.onpointerup = function (evt) {
+        // 获取结束点坐标和点击事件
+        end.x = evt.pageX;
+        end.y = evt.pageY;
+        end.time = new Date().getTime();
+        console.log(getDirection(start, end));
+        console.log(end);
+      };
+    }
+    function getDirection(start, end) {
+      // 方向
+      let direction = "";
+      // 判断，如果滑动距离<=100px 或者 滑动时间>=500ms,返回false
+      if (
+        (Math.abs(end.x - start.x) <= 100 &&
+          Math.abs(end.y - start.y) <= 100) ||
+        end.time - start.time >= 500
+      ) {
+        return false;
+      } else {
+        // 如果符合条件
+        if (Math.abs(end.x - start.x) >= Math.abs(end.y - start.y)) {
+          // 如果x 轴距离绝对值>y 轴距离绝对值
+          // 左右滑动
+          if (end.x - start.x > 0) {
+            // x轴移动为正，右滑
+            direction = "right";
+          } else {
+            // x轴移动为负，左滑
+            direction = "left";
+          }
+        } else {
+          // 上下滑动
+          if (end.y - start.y > 0) {
+            // y轴移动为正，下滑
+            direction = "down";
+          } else {
+            // y轴移动为负，上滑
+            direction = "up";
+          }
+        }
+        return direction;
+        console.log(direction);
+      }
+    }
+    // 找对象
+    var div = document.querySelector("div");
+    // 调用函数
+    slide(div);
+  </script>
+</html>
