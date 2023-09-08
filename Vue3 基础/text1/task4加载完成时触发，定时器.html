@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          number: 1,
+        };
+      },
+      mounted() {
+        setInterval(() => {
+          this.number++;
+        }, 800);
+      },
+      template: "<div>今天是爱你的第{{number}}天!</div>",
+    }).mount("#root");
+  </script>
+</html>

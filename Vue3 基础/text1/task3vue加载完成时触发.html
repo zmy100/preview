@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          hello: "hello world!",
+        };
+      },
+      mounted() {
+        console.log("挂载完成！");
+      },
+      template: "<div>{{hello}}</div>",
+    }).mount("#root");
+  </script>
+</html>
