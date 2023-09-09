@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var general = [
+        "吕布",
+        "赵云",
+        "典韦",
+        "关羽",
+        "马超",
+        "张飞",
+        "黄忠",
+        "许储",
+        "孙策",
+        "太史慈",
+        "夏侯敦",
+        "夏侯渊",
+        "张辽",
+        "张颌",
+        "徐晃",
+        "庞德",
+        "甘宁",
+        "周泰",
+        "魏延",
+      ];
+      var arr2 = [];
+      while (arr2.length < 3) {
+        var randomNum = parseInt(Math.random() * general.length);
+        if (!arr2.includes(general[randomNum])) {
+          arr2.push(general[randomNum]);
+        }
+      }
+      console.log(arr2);
+    </script>
+  </body>
+</html>
