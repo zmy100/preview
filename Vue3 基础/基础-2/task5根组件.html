@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建应用,设置模板为<hello></hello>
+    const app = Vue.createApp({
+      template: "<hello></hello>",
+    });
+    // 定义组件
+    app.component("hello", {
+      data() {
+        return {
+          // 设置data属性hello的初始值
+          hello: "hello world!",
+        };
+      },
+      // 定义组件模板，显示data属性hello的值
+      template: "<h1> {{hello}} </h1>",
+    });
+    // 挂载到DOM元素
+    // 将vue应用程序挂载到id为"root"的HTML元素上
+    const vm = app.mount("#root");
+  </script>
+</html>

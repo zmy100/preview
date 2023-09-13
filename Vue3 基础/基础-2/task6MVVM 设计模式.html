@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          hello: "hello world!!!", // vm负责把修改后的数据，展示到页面
+        };
+      },
+      template: `<h1> {{hello}} </h1>`, // model更新后，更新view
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
