@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建应用
+    const app = Vue.createApp({
+      template:
+        // 使用组件
+        "<div> <index-header /> <h1>内容区</h1> <index-footer /> </div>",
+    });
+    // 定义组件
+    // 组件中, 也可以包含自己的样式和数据
+    app.component("index-header", {
+      data() {
+        return {
+          name: "zhangsan",
+        };
+      },
+      template: "<header>this is index header {{name}}</header>",
+    });
+    app.component("index-footer", {
+      data() {
+        return {
+          name: "lisi",
+        };
+      },
+      template: "<footer>this is index footer {{name}} </footer>",
+    });
+    // 挂载到DOM元素上
+    app.mount("#root");
+  </script>
+</html>
