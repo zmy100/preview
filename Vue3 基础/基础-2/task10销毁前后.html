@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          hello: "hello world!",
+        };
+      },
+      // 创建前
+      beforeCreate() {
+        console.log("beforeCreate");
+      },
+      // 创建后
+      created() {
+        console.log("created");
+      },
+      // 挂载前
+      beforeMount() {
+        console.log("beforeMount");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      // 挂载后
+      mounted() {
+        console.log("mounted");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      // 更新前
+      beforeUpdate() {
+        console.log("beforeUpdate");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      // 更新后
+      updated() {
+        console.log("updated");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      // 销毁前
+      beforeUnmount() {
+        console.log("beforeUnmount");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      // 销毁后
+      unmounted() {
+        console.log("unmounted");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      template: "<h1>{{hello}}</h1>",
+    });
+    // 定时器
+    setTimeout(() => {
+      app.unmount();
+    }, 5000);
+    const vm = app.mount("#root");
+  </script>
+</html>
