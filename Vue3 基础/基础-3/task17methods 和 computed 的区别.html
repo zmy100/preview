@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>{{hello}}</h1>
+      总价: <span>{{getTotal()}}</span>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            price: 2000,
+            num: 20,
+            hello: "hello world",
+          };
+        },
+        // 计算属性
+        computed: {
+          total() {
+            return this.price * this.num + "==>" + Date.now();
+          },
+        },
+        methods: {
+          getTotal() {
+            return this.price * this.num + "==>" + Date.now();
+          },
+        },
+      });
+      const vm = app.mount("#root");
+    </script>
+  </body>
+</html>
