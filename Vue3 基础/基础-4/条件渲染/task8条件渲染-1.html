@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .olivedrab {
+        background: olivedrab;
+      }
+      .orangered {
+        color: orangered;
+      }
+      .blueviolet {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          isShow: false,
+        };
+      },
+      template: `
+      <div v-if="isShow">是true,显示这一段...</div>
+      <div v-else>是false,显示这一段...</div>
+      `,
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

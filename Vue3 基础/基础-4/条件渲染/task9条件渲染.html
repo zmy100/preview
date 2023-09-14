@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .olivedrab {
+        background: olivedrab;
+      }
+      .orangered {
+        color: orangered;
+      }
+      .blueviolet {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <div id="root">
+    <div v-if="data===1">data为1,显示这一段...</div>
+    <div v-else-if="data===2">data为2,显示这一段...</div>
+    <div v-else-if="data===3">data为3,显示这一段...</div>
+    <div v-else-if="data===4">data为4,显示这一段...</div>
+    <div v-else>data为其他值,显示这一段...</div>
+  </div>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          data: 2,
+        };
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

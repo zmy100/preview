@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <ul>
+        <li v-for="(value,index) in students" :key="value.id">
+          {{value}}===>{{index}}
+        </li>
+      </ul>
+      <button @click="buttonClick">添加新用户</button>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          students: [
+            {
+              id: 1,
+              username: "张三",
+              age: 18,
+              sex: "male",
+            },
+            {
+              id: 2,
+              username: "李四",
+              age: 19,
+              sex: "female",
+            },
+            {
+              id: 3,
+              username: "王五",
+              age: 20,
+              sex: "male",
+            },
+            {
+              id: 4,
+              username: "赵六",
+              age: 21,
+              sex: "female",
+            },
+          ],
+        };
+      },
+      methods: {
+        buttonClick() {
+          this.students.push({
+            id: 5,
+            username: "田七",
+            age: 22,
+            sex: "male",
+          });
+        },
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
