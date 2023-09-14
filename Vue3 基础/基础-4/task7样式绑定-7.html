@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .olivedrab {
+        background: olivedrab;
+      }
+      .orangered {
+        color: orangered;
+      }
+      .blueviolet {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建一个Vue应用程序对象
+    const app = Vue.createApp({
+      // 定义数据
+      data() {
+        return {
+          // 定义一个名为className的数组属性，包含两个字符串元素
+          className: ["olivedrab", "orangered"],
+        };
+      },
+      // 定义模板，使用className绑定到h1元素的class属性上，并在其中插入<demo />组件
+      template:
+        '<h1 :class="className">hello world <demo data-index="hello" class="blueviolet" /></h1>',
+    });
+    // 定义名为"demo"的组件
+    app.component("demo", {
+      // 定义模板，显示文本"demo"
+      template: `
+      <div :data-index="$attrs['data-index']" :class="$attrs.class">
+      <h1>1111</h1>
+      <h1>2222</h1>
+      <h1>3333</h1>
+    </div>
+    <div :data-index="$attrs['data-index']" :class="$attrs.class">
+      <h1>1111</h1>
+      <h1>2222</h1>
+      <h1>3333</h1>
+    </div>
+      `, // 给子组件设置自己的字体颜色
+    });
+    // 将Vue应用挂载到id为'root的HTML元素上
+    app.mount("#root");
+  </script>
+</html>

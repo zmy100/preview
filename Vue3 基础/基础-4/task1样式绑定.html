@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .olivedrab {
+        color: olivedrab;
+      }
+      .orangered {
+        color: orangered;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <h1 :class="className">hello world</h1>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          className: "orangered", // 设置一个变量, 使用 v-bind 来绑定
+        };
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
