@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          hello: "hello world",
+          isShow: false,
+        };
+      },
+      template: '<h1 v-if="isShow">{{hello}}</h1>', // if 判断, 如果为 true, 标签展示, 如果为 false, 标签不展示
+      //   template: '<h1 v-show="isShow">{{hello}}</h1>', // v-show有同样的效果
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
