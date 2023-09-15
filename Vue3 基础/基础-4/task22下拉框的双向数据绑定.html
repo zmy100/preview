@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>城市: {{selectValue}}</h1>
+      <select v-model="selectValue">
+        <option value="" disabled>请选择你的城市</option>
+        <option :value="item.value" v-for="item in ajaxValue" :key="item.id">
+          {{item.text}}
+        </option>
+      </select>
+    </div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          selectValue: "",
+          ajaxValue: [
+            { id: 1, text: "北京", value: "beijing" },
+            { id: 2, text: "上海", value: "shanghai" },
+            { id: 3, text: "广州", value: "guangzhou" },
+            { id: 4, text: "深圳", value: "shenzhen" },
+            { id: 5, text: "杭州", value: "hangzhou" },
+            { id: 6, text: "重庆", value: "chongqing" },
+          ],
+        };
+      },
+    }).mount("#root");
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>性别:{{radioValue}}</h1>
+      男<input
+        type="radio"
+        v-model="radioValue"
+        name="sex"
+        value="male"
+        id=""
+      />
+      <br /><br />
+      女<input
+        type="radio"
+        v-model="radioValue"
+        name="sex"
+        value="female"
+        id=""
+      />
+      <br /><br />
+      待定<input
+        type="radio"
+        v-model="radioValue"
+        name="sex"
+        value="unknow"
+        id=""
+      />
+    </div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          radioValue: "",
+        };
+      },
+    }).mount("#root");
+  </script>
+</html>
