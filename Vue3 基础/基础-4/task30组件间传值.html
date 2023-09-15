@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // 定义一个局部组件
+      const hello = {
+        props: ["text"],
+        template: `<h1>hello{{text}}</h1>`,
+      };
+      // 定义一个局部组件
+      const world = {
+        props: ["text"],
+        template: `<h1>world{{text}}</h1>`,
+      };
+      // 创建一个根组件
+      const app = Vue.createApp({
+        // 在根组件中注册局部组件
+        components: {
+          hello,
+          world,
+        },
+        // 在根组件中使用局部组件
+        template: `
+        <div>
+          <hello text="!!!!" />
+          <world text="????" />
+        </div>
+        `,
+      });
+      // 挂载根组件
+      const vm = app.mount("#root");
+    </script>
+  </body>
+</html>

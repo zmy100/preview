@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // 子组件
+      const hello = {
+        props: ["content1", "content2"],
+        template: `<div>{{content1+content2}}</div>`,
+      };
+      // 父组件
+      const app = Vue.createApp({
+        components: { hello },
+        data() {
+          return {
+            num1: 123,
+            num2: 456,
+          };
+        },
+        template: `<hello :content1='num1' :content2='num2' />`,
+      });
+      // 挂载根组件
+      app.mount("#root");
+    </script>
+  </body>
+</html>
