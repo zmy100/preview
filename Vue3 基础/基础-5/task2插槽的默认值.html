@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div.button {
+        display: inline-block;
+        width: 50px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 5px;
+        background-color: olive;
+        cursor: pointer;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      template: `
+        <myform> <button>提交</button> </myform> 
+        <br><br>
+        <myform> <div class="button">提交</div> </myform> 
+        <br><br>
+        <myform></myform>
+        `,
+    });
+    app.component("myform", {
+      template: `
+      <input type="text" /> <slot> <button>默认</button> </slot>
+      `,
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
