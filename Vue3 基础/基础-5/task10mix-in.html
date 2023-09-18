@@ -11,37 +11,37 @@
     <div id="root"></div>
   </body>
   <script>
-    const app = Vue.createApp({
+    const myMixIn = {
       data() {
         return {
-          currentItem: "my-input",
+          count: 100,
         };
       },
       methods: {
         handleClick() {
-          if (this.currentItem === "my-input") {
-            this.currentItem = "my-title";
-          } else {
-            this.currentItem = "my-input";
-          }
+          console.log("mixin click ...");
         },
       },
-      template: `
-        <keep-alive>
-          <component :is="currentItem" />
-        </keep-alive>
-        <button @click="handleClick">切换</button>
-        `,
-    });
-    app.component("my-input", {
-      template: `
-			<input type="text"/>
-        `,
-    });
-    app.component("my-title", {
-      template: `
-			<h1>hello world</h1>
-        `,
+      mounted() {
+        console.log("mixin mouted...");
+      },
+    };
+    const app = Vue.createApp({
+      mixins: [myMixIn],
+      data() {
+        return {
+          count: 1,
+        };
+      },
+      methods: {
+        handleClick() {
+          console.log("component click ...");
+        },
+      },
+      mounted() {
+        console.log("component mouted...");
+      },
+      template: `<div @click="handleClick">{{count}}</div>`,
     });
     const vm = app.mount("#root");
   </script>

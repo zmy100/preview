@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      template: `
+    <sync-component />
+    <async-component />
+    `,
+    });
+    // 同步组件
+    app.component("sync-component", {
+      template: `
+        <h1>我是同步组件,立即展示</h1>
+        `,
+    });
+    // 异步组件
+    app.component(
+      "async-component",
+      Vue.defineAsyncComponent(() => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({
+              template: `
+            <h1>我是异步组件,4秒后才会展示</h1>
+        `,
+            });
+          }, 4000);
+        });
+      })
+    );
+    const vm = app.mount("#root");
+  </script>
+</html>
