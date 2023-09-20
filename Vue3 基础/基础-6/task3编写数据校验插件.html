@@ -11,17 +11,61 @@
     <div id="root"></div>
   </body>
   <script>
+    // 定义一个自定义验证插件
+    const validatePlugin = {
+      install(app, options) {
+        // 在 Vue 实例中混入插件的方法
+        app.mixin({
+          // 混入的生命周期钩子函数
+          mounted() {
+            // 遍历定义的验证规则
+            for (const key in this.$options.rules) {
+              const item = this.$options.rules[key];
+              // 监听数据变化
+              this.$watch(key, (value) => {
+                // 调用验证规则的验证函数
+                const result = item.validate(value);
+                if (!result) {
+                  console.log(item.message);
+                }
+              });
+            }
+          },
+        });
+      },
+    };
+    // 创建 Vue 应用实例
     const app = Vue.createApp({
+      // 数据对象
       data() {
         return {
           name: "zhangsan",
           age: 18,
         };
       },
+      // 定义验证规则
+      rules: {
+        age: {
+          // 年龄验证函数
+          validate: (age) => age > 25,
+          // 验证不通过时的错误提示
+          message: "太年轻了",
+        },
+        name: {
+          // 用户名验证函数
+          validate: (name) => name.length > 5,
+          // 验证不通过时的错误提示
+          message: "太短了",
+        },
+      },
+      // 模板代码
       template: `<div>
-				用户名: {{name}}, 年龄: {{age}}
-			</div>`,
+			用户名: {{name}}, 年龄: {{age}}
+		</div>`,
     });
-    app.mount("#root");
+    // 使用自定义验证插件
+    app.use(validatePlugin);
+    // 挂载 Vue 实例到 HTML 中的 #root 元素上
+    const vm = app.mount("#root");
   </script>
 </html>
