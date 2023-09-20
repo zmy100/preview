@@ -6,47 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <style>
-      .area {
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background-color: olivedrab;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .mask {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-    </style>
   </head>
   <body>
-    <div id="root">
-      <div class="area">
-        <button @click="handleClick">点击</button>
-        <div v-show="show" class="mask"></div>
-      </div>
-    </div>
+    <div id="root"></div>
   </body>
+  <!-- 创建 Vue 应用 -->
   <script>
+    // 创建一个插件对象
+    const myPlugin = {
+      install(app, options) {
+        // 向应用程序提供全局变量
+        app.provide("name", "zhangsan");
+        // 注册一个指令，指令名称为 "focus"
+        app.directive("focus", {
+          // 在元素挂载时自动聚焦元素
+          mounted(el) {
+            el.focus();
+          },
+        });
+        // 全局混入，所有组件都会执行
+        app.mixin({
+          mounted() {
+            console.log("mixing...");
+          },
+        });
+        // 添加全局方法
+        app.config.globalProperties.$sayHello = "hello world!!!";
+      },
+    };
+    // 创建 Vue 应用实例
     const app = Vue.createApp({
-      data() {
-        return {
-          show: false,
-        };
-      },
-      methods: {
-        handleClick() {
-          this.show = !this.show;
-        },
-      },
+      // 使用模板字符串作为模板
+      template: ` <hello /> `,
     });
+    // 创建一个名为 "hello" 的组件
+    app.component("hello", {
+      // 组件挂载时打印全局属性 $sayHello
+      mounted() {
+        console.log(this.$sayHello);
+      },
+      // 在组件中注入提供的变量 "name"
+      inject: ["name"],
+      // 使用模板字符串作为模板
+      template: `
+      <div> {{name}} </div>
+      <input type="text" v-focus/>
+    `,
+    });
+    // 在应用中使用插件
+    app.use(myPlugin, { username: "zhangsan" });
+    // 将应用实例挂载到页面的根元素
     app.mount("#root");
   </script>
 </html>

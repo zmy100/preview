@@ -30,7 +30,9 @@
     <div id="root">
       <div class="area">
         <button @click="handleClick">点击</button>
-        <div v-show="show" class="mask"></div>
+        <teleport to="body">
+          <div v-show="show" class="mask">{{hello}}</div>
+        </teleport>
       </div>
     </div>
   </body>
@@ -39,6 +41,7 @@
       data() {
         return {
           show: false,
+          hello: "hello world!!!",
         };
       },
       methods: {

@@ -6,16 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      /* 入场动画开始状态 */
+      .v-enter-from {
+        opacity: 0;
+      }
+      /* 入场动画结束状态 */
+      .v-enter-to {
+        opacity: 1;
+      }
+      /* 出场动画结束状态 */
+      .v-leave-to {
+        opacity: 0;
+      }
+      /* 入场动画过渡效果 */
+      /* 出场动画过渡效果 */
+      .v-enter-active,
+      .v-leave-active {
+        transition: opacity 1s linear;
+      }
+    </style>
   </head>
   <body>
     <div id="root">
       <button @click="toggle">切换</button>
-      <span v-if="show">hello world</span>
+      <transition>
+        <span v-if="show">hello world</span>
+      </transition>
     </div>
   </body>
   <script>
     const app = Vue.createApp({
-      
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        toggle() {
+          this.show = !this.show;
+        },
+      },
     });
     const vm = app.mount("#root");
   </script>

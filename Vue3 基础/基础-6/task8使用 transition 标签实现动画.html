@@ -6,9 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      span {
+        position: absolute;
+      }
+      @keyframes flyin {
+        0% {
+          transform: translateX(-200px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+      @keyframes flyout {
+        0% {
+          transform: translateX(0px);
+        }
+        100% {
+          transform: translateX(-200px);
+        }
+      }
+      .v-enter-active {
+        animation: flyin 1s;
+      }
+      .v-leave-active {
+        animation: flyout 1s;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <button @click="toggle">切换</button>
+      <transition>
+        <span v-if="show">hello world</span>
+      </transition>
+    </div>
   </body>
-  <script></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        toggle() {
+          this.show = !this.show;
+        },
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
 </html>
