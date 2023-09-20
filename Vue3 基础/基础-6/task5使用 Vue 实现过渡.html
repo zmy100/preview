@@ -6,9 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .transition {
+        transition: background 1s linear;
+      }
+      .orangered {
+        background-color: orangered;
+      }
+      .olivedrab {
+        background-color: olivedrab;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <h1 :class="transition">hello world</h1>
+      <button @click="toggleStatus">切换</button>
+    </div>
   </body>
-  <script></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          transition: {
+            transition: true,
+            orangered: true,
+            olivedrab: false,
+          },
+        };
+      },
+      methods: {
+        toggleStatus() {
+          this.transition.orangered = !this.transition.orangered;
+          this.transition.olivedrab = !this.transition.olivedrab;
+        },
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
 </html>

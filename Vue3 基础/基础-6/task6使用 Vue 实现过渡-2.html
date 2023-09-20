@@ -7,31 +7,14 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
-      @keyframes left2right {
-        0% {
-          transform: translateX(0px);
-        }
-        25% {
-          transform: translateX(-100px);
-        }
-        50% {
-          transform: translateX(0px);
-        }
-        75% {
-          transform: translateX(100px);
-        }
-        100% {
-          transform: translateX(0px);
-        }
-      }
-      .animation {
-        animation: left2right 3s;
+      .transition {
+        transition: 1s background linear;
       }
     </style>
   </head>
   <body>
     <div id="root">
-      <h1 :class="animate">hello world</h1>
+      <h1 class="transition" :style="styleObj">hello world</h1>
       <button @click="toggleStatus">切换</button>
     </div>
   </body>
@@ -39,14 +22,18 @@
     const app = Vue.createApp({
       data() {
         return {
-          animate: {
-            animation: true,
+          styleObj: {
+            backgroundColor: "orangered",
           },
         };
       },
       methods: {
         toggleStatus() {
-          this.animate.animation = !this.animate.animation;
+          if (this.styleObj.backgroundColor === "orangered") {
+            this.styleObj.backgroundColor = "olivedrab";
+          } else {
+            this.styleObj.backgroundColor = "orangered";
+          }
         },
       },
     });

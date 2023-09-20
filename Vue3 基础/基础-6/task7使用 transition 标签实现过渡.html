@@ -8,7 +8,15 @@
     <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <button @click="toggle">切换</button>
+      <span v-if="show">hello world</span>
+    </div>
   </body>
-  <script></script>
+  <script>
+    const app = Vue.createApp({
+      
+    });
+    const vm = app.mount("#root");
+  </script>
 </html>
