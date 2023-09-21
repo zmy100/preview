@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <ul>
+        <li v-for="(value,index) of user" :key="index">
+          第{{index+1}}名:{{value}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          user: ["张三", "李四", "王五", "赵六"],
+        };
+      },
+    }).mount("#root");
+  </script>
+</html>
