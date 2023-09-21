@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          name: "小明",
+          age: 18,
+          sex: "male",
+        };
+      },
+      template:
+        "<h1>我的名字叫{{name}},今年{{age}}岁,我是{{sex==='male'?'男':'女'}}生</h1>",
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

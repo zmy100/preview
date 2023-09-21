@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <form action="https://www.baidu.com">
+        <button @click="buttonClick">提交</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      methods: {
+        buttonClick(e) {
+          // 阻止默认行为
+          e.preventDefault();
+        },
+      },
+    });
+    app.mount("#root");
+  </script>
+</html>

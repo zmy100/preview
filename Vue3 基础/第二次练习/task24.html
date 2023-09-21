@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- 进入页面，自动触发字母变大写 -->
+      <button>{{buttonClick(buttonString)}}</button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            buttonString: "Click Me",
+          };
+        },
+        methods: {
+          buttonClick() {
+            this.buttonString = this.buttonString.toUpperCase(); // 点击buttonString里面的字母变成大写
+            return this.buttonString;
+          },
+        },
+      });
+      const vm = app.mount("#root");
+    </script>
+  </body>
+</html>

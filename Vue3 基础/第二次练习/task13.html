@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          titleString: "这是一个努力的老虎",
+        };
+      },
+      template:
+        '<img v-bind:title="titleString" src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202201261557354.jpeg" alt=""> ',
+    }).mount("#root");
+  </script>
+</html>
