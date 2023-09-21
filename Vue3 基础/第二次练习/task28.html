@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div>
+        <h1>{{hello}}</h1>
+        总价: <span>{{total}}</span>
+      </div>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            price: 100,
+            num: 20,
+            hello: "hello world",
+            total: 2000,
+          };
+        },
+        // 监听data中数据的变化
+        watch: {
+          price(current, prev) {
+            console.log(`price的值发生了改变...,从${prev}变成了${current}`);
+            this.total = this.num * current + "==>" + Date.now();
+          },
+        },
+        // 计算属性
+        // computed: {
+        //   total() {
+        //     return this.num * this.price + "==>" + Date.now();
+        //   },
+        // },
+        // methods: {
+        //   countTotal() {
+        //     return this.num * this.price + "==>" + Date.now();
+        //   },
+        // },
+      });
+      const vm = app.mount("#root");
+    </script>
+  </body>
+</html>
