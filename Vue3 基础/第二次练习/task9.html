@@ -8,21 +8,17 @@
     <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
-    <div id="root">
-      <img
-        v-bind:title="titleString"
-        src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202201261557354.jpeg"
-        alt=""
-      />
-    </div>
+    <div id="root"></div>
   </body>
   <script>
-    Vue.createApp({
+    const app = Vue.createApp({
       data() {
         return {
-          titleString: "这是一个努力的老虎",
+          hello: "你好呀",
         };
       },
-    }).mount("#root");
+      template: `<h1> {{hello}} </h1>`,
+    });
+    const vm = app.mount("#root");
   </script>
 </html>

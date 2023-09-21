@@ -8,11 +8,14 @@
   </head>
   <body>
     <div id="root">
+      <!-- 输入框 -->
       <input v-model="todoItem" type="text" />
+      <!-- 添加按钮 -->
       <button @click="todoClick">添加</button>
+      <!-- 待办事项列表 -->
       <ul>
-        <li v-for="(value,index) of todoList" :key="index">
-          第{{index+1}}件事:{{value}}
+        <li v-for="(value, index) of todoList" :key="index">
+          第{{ index + 1 }}件事:{{ value }}
         </li>
       </ul>
     </div>
@@ -21,14 +24,19 @@
     Vue.createApp({
       data() {
         return {
+          // 待办事项列表的数据和输入框的值
           todoList: [],
           todoItem: "",
         };
       },
       methods: {
+        // 添加待办事项的方法
         todoClick() {
+          // 判断输入框的值是否为空
           if (this.todoItem) {
+            // 将输入框的值添加到待办事项列表
             this.todoList.push(this.todoItem);
+            // 清空输入框的值
             this.todoItem = "";
           }
         },

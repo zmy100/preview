@@ -8,9 +8,10 @@
   </head>
   <body>
     <div id="root">
+      <!-- 利用 Vue.js 渲染数据列表 -->
       <ul>
-        <li v-for="(value,index) of user" :key="index">
-          第{{index+1}}名:{{value}}
+        <li v-for="(value, index) of user" :key="index">
+          第{{ index + 1 }}名:{{ value }}
         </li>
       </ul>
     </div>
@@ -19,6 +20,7 @@
     Vue.createApp({
       data() {
         return {
+          // 用户列表数据
           user: ["张三", "李四", "王五", "赵六"],
         };
       },

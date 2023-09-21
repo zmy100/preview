@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          hello: "hello world",
+        };
+      },
+      beforeCreate() {
+        console.log("beforeCreate...");
+      },
+      created() {
+        console.log("created...");
+      },
+      beforeMount() {
+        console.log("beforeMount...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      mounted() {
+        console.log("mounted...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      beforeUpdate() {
+        console.log("beforeUpdate...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      updated() {
+        console.log("updated...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      beforeUnmount() {
+        console.log("beforeUnmount...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      unmounted() {
+        console.log("unmounted...");
+        console.log(document.getElementById("root").innerHTML);
+      },
+      template: "<h1> {{hello}} </h1>",
+    });
+    // 设置定时器，取消应用的挂载, 让 Vue 应用失效
+    setTimeout(() => {
+      app.unmount();
+    }, 5000);
+    const vm = app.mount("#root");
+  </script>
+</html>

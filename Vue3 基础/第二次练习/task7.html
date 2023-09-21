@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建 Vue 应用
+    const app = Vue.createApp({
+      data() {
+        return {
+          // 定义数据属性
+          headerTitle: "header page!!!",
+          footerTitle: "footer page!!!",
+        };
+      },
+      template: `
+        <index-header v-bind:content="headerTitle" />
+        <h1>内容区</h1>
+        <index-footer v-bind:content="footerTitle" />
+      `,
+    });
+    // 创建组件 index-header
+    app.component("index-header", {
+      props: ["content"],
+      template: `
+        <header>this is index {{content}} </header>
+      `,
+    });
+    // 创建组件 index-footer
+    app.component("index-footer", {
+      props: ["content"],
+      template: `
+        <footer>this is index {{content}}</footer>
+      `,
+    });
+    // 将 Vue 应用挂载到 #root 元素上
+    const vm = app.mount("#root");
+  </script>
+</html>
