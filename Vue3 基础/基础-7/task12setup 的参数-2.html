@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建一个 Vue 应用程序
+    const app = Vue.createApp({
+      // 在模板中使用自定义组件 hello，并传入一个默认插槽内容
+      template: `<hello><div>zhangsan</div></hello>`,
+    });
+    // 创建一个名为 hello 的自定义组件
+    app.component("hello", {
+      setup(props, context) {
+        const { attrs, slots, emit } = context;
+        // 打印默认插槽内容
+        console.log(slots.default());
+        // 返回一个函数作为组件的渲染函数
+        return function () {
+          // 渲染一个带有红色字体的 h1 元素，内容为默认插槽内容
+          return Vue.h("h1", { style: "color:red" }, slots.default());
+        };
+      },
+    });
+    // 将 Vue 应用程序挂载到 id 为 root 的元素上
+    const vm = app.mount("#root");
+  </script>
+</html>

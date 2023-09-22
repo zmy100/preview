@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建一个 Vue 应用程序
+    const app = Vue.createApp({
+      methods: {
+        handleClick() {
+          alert("change!!!");
+        },
+      },
+      // 在模板中使用自定义组件 hello，并监听其 change 事件
+      template: `<hello @change="handleClick" />`,
+    });
+    // 创建一个名为 hello 的自定义组件
+    app.component("hello", {
+      // 在模板中定义一个 h1 元素，并监听其点击事件
+      template: `<h1 @click="handleClick">123</h1>`,
+      setup(props, context) {
+        const { attrs, slots, emit } = context;
+        function handleClick() {
+          // 当 h1 元素被点击时，触发 change 事件
+          emit("change");
+        }
+        return {
+          handleClick,
+        };
+      },
+    });
+    // 将 Vue 应用程序挂载到 id 为 root 的元素上
+    const vm = app.mount("#root");
+  </script>
+</html>
