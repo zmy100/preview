@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .v-enter-from {
+        opacity: 0;
+      }
+      .v-enter-to {
+        opacity: 1;
+      }
+      .v-enter-active {
+        transition: opacity 1s linear;
+      }
+      .v-leave-from {
+        opacity: 1;
+      }
+      .v-leave-to {
+        opacity: 0;
+      }
+      .v-leave-active {
+        transition: opacity 1s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <button @click="toggleStatus">切换</button>
+      <transition mode="out-in" appear>
+        <h1 v-if="show">welcome</h1>
+        <h1 v-else>goodbye</h1>
+      </transition>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        toggleStatus() {
+          this.show = !this.show;
+        },
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

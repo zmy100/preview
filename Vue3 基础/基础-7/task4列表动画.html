@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .list-item {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .v-enter-from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      .v-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .v-enter-active {
+        transition: all 0.5s linear;
+      }
+      .v-move {
+        transition: all 0.5s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          list: [3, 2, 1],
+          user: [0],
+        };
+      },
+      methods: {
+        handleAdd() {
+          this.list.unshift(this.list.length + 1);
+        },
+      },
+      template: `
+      <transition-group>
+	   <div v-for="item in user" :key="item">
+        <span class="list-item" v-for="item in list" :key="item">{{item}}</span>
+	   <button @click="handleAdd">添加</button>
+       </div>
+       </transition-group>
+          `,
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
