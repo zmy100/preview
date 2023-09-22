@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      setup() {
+        const { ref, reactive } = Vue;
+        // 定义inputValue, 它是一个响应式数据
+        const inputValue = ref("");
+        const list = reactive([]);
+        const handleInputValueChange = function (e) {
+          inputValue.value = e.target.value;
+        };
+        const handleClick = function () {
+          // 将inputValue的值添加到list中
+          list.push(inputValue.value);
+          // 清空inputValue
+          inputValue.value = "";
+        };
+        return {
+          inputValue,
+          list,
+          handleInputValueChange,
+          handleClick,
+        };
+      },
+      template: `
+      <div>
+        <div>
+          <!--绑定到input的value-->
+          <input :value="inputValue" @input="handleInputValueChange" type="text" />
+          <button @click="handleClick">提交</button>
+        </div>
+        <ul>
+          <li v-for="(item,index) in list" :key="index">{{item}}</li>
+        </ul>
+      </div>`,
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

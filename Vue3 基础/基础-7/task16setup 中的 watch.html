@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <input type="text" v-model="inputValue" />
+      <h1>{{inputValue}}</h1>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      setup() {
+        const { ref, watch } = Vue;
+        const inputValue = ref("");
+        watch(inputValue, (currentValue, previousValue) => {
+          console.log(
+            `当前的值: ${currentValue}, 最开始的值: ${previousValue}`
+          );
+        });
+        return { inputValue };
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>

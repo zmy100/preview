@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
+      <button @click="handleClick">{{count}}</button> ===> {{countMultiplyTwo}}
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      setup() {
+        const { ref, computed } = Vue;
+        // 定义一个响应式数据count
+        const count = ref(0);
+        // 定义一个handleClick来让count的数量，每次+1
+        const handleClick = () => {
+          count.value += 1;
+        };
+        // 定义一个计算属性countMultiplyTwo
+        const countMultiplyTwo = computed(() => {
+          return count.value * 2;
+        });
+        // 返回count和handleClick
+        return {
+          count,
+          handleClick,
+          countMultiplyTwo,
+        };
+      },
+    });
+    const vm = app.mount("#root");
+  </script>
+</html>
