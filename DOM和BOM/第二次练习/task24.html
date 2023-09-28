@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>08 百度换肤</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      #skin {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./img/百度换肤/skin1.jpg");
+        background-size: cover;
+        background-position: center 0;
+        background-repeat: no-repeat;
+      }
+      #skin-photo {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        z-index: 10;
+      }
+      #skin-photo ul {
+        overflow: hidden;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+      }
+      #skin-photo ul li {
+        float: left;
+        cursor: pointer;
+        height: 120px;
+        margin: 10px 0 10px 96px;
+      }
+      #skin-photo ul li img {
+        width: 180px;
+        height: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="skin"></div>
+    <div id="skin-photo">
+      <ul>
+        <li>
+          <img src="./img/百度换肤/skin1.jpg" />
+        </li>
+        <li>
+          <img src="./img/百度换肤/skin2.jpg" />
+        </li>
+        <li>
+          <img src="./img/百度换肤/skin3.jpg" />
+        </li>
+        <li>
+          <img src="./img/百度换肤/skin4.jpg" />
+        </li>
+      </ul>
+    </div>
+    <!-- 百度换肤 -->
+  </body>
+  <script>
+    // 找对象
+    // 小图数组
+    var liArray = document.querySelectorAll("ul li");
+    // 大图
+    var divSkin = document.getElementById("skin");
+
+    // for循环，添加点击事件
+    for (var i = 0; i < liArray.length; i++) {
+      liArray[i].onclick = function () {
+        // 获取小图的src，修改背景图片地址
+        divSkin.style.backgroundImage =
+          'url(" ' + this.querySelector("img").getAttribute("src") + '")';
+      };
+    }
+  </script>
+</html>
