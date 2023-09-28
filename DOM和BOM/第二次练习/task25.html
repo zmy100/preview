@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery彩色带图标Tabs选项卡代码</title>
+    <style>
+      .tabs-vertical {
+        font: bold 13px sans-serif;
+        background-color: #f7f7f7;
+        box-shadow: 0 0 22px #e2e2e2 inset, 2px 2px 3px #e8e8e8;
+        border: 1px solid #cecece;
+        margin: 30px auto 30px;
+        max-width: 580px;
+        text-align: center;
+        border-radius: 2px;
+      }
+
+      /* The tabs */
+
+      .tabs-vertical ul {
+        float: left;
+        list-style: none;
+        text-align: left;
+
+        margin: 0;
+        padding-left: 0;
+      }
+
+      .tabs-vertical ul li {
+        margin-right: -1px;
+      }
+
+      .tabs-vertical ul li a {
+        display: block;
+        text-decoration: none;
+        color: #656a6d;
+
+        border: 1px solid transparent;
+        border-right: 0;
+        border-left: 0;
+
+        padding: 16px 40px 16px 20px;
+      }
+
+      .tabs-vertical ul li a.tab-active {
+        border-color: #dddddd;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 0px #efefef;
+      }
+
+      .tabs-vertical ul li:first-child a {
+        border-top: 0;
+      }
+
+      /* The content */
+
+      .tabs-vertical .tabs-content-placeholder {
+        overflow: hidden;
+        border-left: 1px solid #dddddd;
+        font-weight: normal;
+        background-color: #fff;
+        padding: 20px 40px 45px;
+        margin: 0 auto;
+        box-shadow: -3px 0 0px #f3f3f3;
+        text-align: center;
+      }
+
+      .tabs-vertical .tabs-content-placeholder div {
+        display: none;
+      }
+
+      .tabs-vertical .tabs-content-placeholder div.tab-content-active {
+        display: block;
+      }
+
+      .tabs-vertical .tabs-content-placeholder div p {
+        color: #565a5c;
+        line-height: 1.5;
+        text-align: left;
+
+        margin: 5px 0 20px;
+      }
+
+      .tabs-vertical .tabs-content-placeholder div img {
+        max-width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .tabs-vertical ul {
+          float: none;
+        }
+
+        .tabs-vertical ul li {
+          display: inline-block;
+          margin-bottom: -1px;
+        }
+
+        .tabs-vertical ul li a {
+          border: 1px solid transparent;
+          border-bottom: 0;
+          border-top: 0;
+          padding: 12px 15px;
+        }
+
+        .tabs-vertical ul li a.tab-active {
+          border-color: #dddddd;
+          background-color: #ffffff;
+          box-shadow: 2px 0px 0px #efefef;
+        }
+
+        .tabs-vertical ul li:first-child a {
+          border-left: 0;
+        }
+
+        .tabs-vertical .tabs-content-placeholder {
+          padding: 15px 30px 30px;
+          border-left: 0;
+          border-top: 1px solid #dddddd;
+          box-shadow: 0px -3px 0px #f3f3f3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jq22-container">
+      <div class="tabs-vertical">
+        <ul>
+          <li>
+            <a class="tab-active" data-index="0" href="#">选项一</a>
+          </li>
+          <li>
+            <a data-index="1" href="#">选项二</a>
+          </li>
+          <li>
+            <a data-index="2" href="#">选项三</a>
+          </li>
+        </ul>
+        <div class="tabs-content-placeholder">
+          <div class="tab-content-active">
+            <p>游泳池 1</p>
+            <img src="./img/选项卡/industrial-mech.jpg" alt="Industrial Mech" />
+          </div>
+          <div>
+            <p>斗兽场 2</p>
+            <img src="./img/选项卡/colosseum.jpg" alt="Colosseum" />
+          </div>
+          <div>
+            <p>雪山 3</p>
+            <img src="./img/选项卡/sahale-wa.jpg" alt="Sahale Wa" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 选项卡2 -->
+  </body>
+  <script>
+    // 找对象
+    // 选项卡数组
+    var liArray = document.querySelectorAll("ul li");
+    // 图片数组
+    var divArray = document.querySelectorAll(".tabs-content-placeholder div");
+
+    // for循环，给每个选项卡添加点击事件
+    for (var i = 0; i < liArray.length; i++) {
+      liArray[i].onclick = function () {
+        // for循环遍历
+        for (var i = 0; i < liArray.length; i++) {
+          // 选项卡高亮熄灭
+          liArray[i].querySelector("a").className = "";
+          // 添加索引
+          liArray[i].setAttribute("index", i);
+          // 图片隐藏
+          divArray[i].className = "";
+        }
+        // 当前选项卡显示
+        this.querySelector("a").className = "tab-active";
+        // 对应索引图片显示
+        divArray[this.getAttribute("index")].className = "tab-content-active";
+      };
+    }
+  </script>
+</html>
