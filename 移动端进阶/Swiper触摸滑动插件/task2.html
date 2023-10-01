@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <title>Tab 切换</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        padding: 24px;
+      }
+      .tab-header {
+        display: flex;
+        justify-content: space-between;
+        line-height: 30px;
+      }
+      .tab-label-active {
+        color: #409eff;
+        border-bottom: 2px solid #409eff;
+      }
+      .tab-item {
+        line-height: 40px;
+        border-bottom: 1px solid #ebebeb;
+      }
+      .swiper-container {
+        width: 100vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tab-header" class="tab-header">
+      <a href="javascript:;" class="tab-label tab-label-active" data-index="0"
+        >在线演示</a
+      >
+      <a href="javascript:;" class="tab-label" data-index="1">中文教程</a>
+      <a href="javascript:;" class="tab-label" data-index="2">获取 Swiper</a>
+    </div>
+    <div id="tab-content" class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <ul>
+            <li class="tab-item">Swiper 基础演示</li>
+            <li class="tab-item">Swiper 精彩应用（移动）</li>
+            <li class="tab-item">Swiper 精彩应用（PC）</li>
+          </ul>
+        </div>
+        <div class="swiper-slide">
+          <ul>
+            <li class="tab-item">Swiper 使用方法</li>
+            <li class="tab-item">Swiper Animate 使用方法</li>
+            <li class="tab-item">Swiper 与 DOM</li>
+          </ul>
+        </div>
+        <div class="swiper-slide">
+          <ul>
+            <li class="tab-item">下载 Swiper</li>
+            <li class="tab-item">Swiper CDN 地址</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const tabHeader = document.getElementById("tab-header");
+    const aArray = document.getElementsByClassName("tab-label");
+    const mySwiper = new Swiper(".swiper-container", {
+      on: {
+        slideChangeTransitionEnd: function () {
+          for (const element of aArray) {
+            element.classList.remove("tab-label-active");
+          }
+          aArray[this.activeIndex].classList.add("tab-label-active");
+        },
+      },
+    });
+    tabHeader.onclick = function (ev) {
+      for (const element of aArray) {
+        element.classList.remove("tab-label-active");
+      }
+      ev.target.classList.add("tab-label-active");
+      mySwiper.slideTo(ev.target.dataset.index);
+    };
+  </script>
+</html>

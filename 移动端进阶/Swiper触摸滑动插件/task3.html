@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面滑动切换</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .swiper-container {
+        width: 100vw;
+        height: 100vh;
+      }
+      .swiper-slide {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .logistics-slide {
+        background-color: #57cfe1;
+      }
+      .purchase-slide {
+        background-color: #fe8e34;
+      }
+      .logistics-text,
+      .purchase-text {
+        position: absolute;
+        width: 214px;
+        opacity: 0;
+        transition: all 1s 0.5s;
+      }
+      .logistics-text-active,
+      .purchase-text-active {
+        opacity: 1;
+      }
+      .logistics-text {
+        top: 50px;
+      }
+      .purchase-text {
+        bottom: 40px;
+      }
+      .logistics-phone,
+      .logistics-person,
+      .purchase-phone,
+      .purchase-person {
+        position: absolute;
+        width: 180px;
+        transition: all 0.5s;
+      }
+      .logistics-phone {
+        bottom: 0;
+        transform: translate3d(-1000px, 0, 0);
+      }
+      .logistics-phone-active {
+        transform: translate3d(-70px, 0, 0);
+      }
+      .logistics-person {
+        bottom: 0;
+        transform: translate3d(1000px, 0, 0);
+      }
+      .logistics-person-active {
+        transform: translate3d(70px, 0, 0);
+      }
+      .purchase-person {
+        top: 50px;
+        transform: translate3d(-70px, -1000px, 0);
+      }
+      .purchase-person-active {
+        top: 50px;
+        transform: translate3d(-70px, 0, 0);
+      }
+      .purchase-phone {
+        top: 120px;
+        transform: translate3d(70px, 1000px, 0);
+      }
+      .purchase-phone-active {
+        top: 120px;
+        transform: translate3d(70px, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide logistics-slide">
+          <img
+            src="./images/logistics-phone.png"
+            alt=""
+            class="logistics-phone"
+            id="logistics-phone"
+          />
+          <img
+            src="./images/logistics-person.png"
+            alt=""
+            class="logistics-person"
+            id="logistics-person"
+          />
+          <img
+            src="./images/logistics-text.png"
+            alt=""
+            class="logistics-text"
+            id="logistics-text"
+          />
+        </div>
+        <div class="swiper-slide purchase-slide">
+          <img
+            src="./images/purchase-phone.png"
+            alt=""
+            class="purchase-phone"
+            id="purchase-phone"
+          />
+          <img
+            src="./images/purchase-person.png"
+            alt=""
+            class="purchase-person"
+            id="purchase-person"
+          />
+          <img
+            src="./images/purchase-text.png"
+            alt=""
+            class="purchase-text"
+            id="purchase-text"
+          />
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </body>
+</html>

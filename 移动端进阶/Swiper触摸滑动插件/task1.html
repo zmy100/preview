@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .swiper {
+        width: 375px;
+        height: 300px;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112221722044.jpeg"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112221722908.jpeg"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202112221723697.jpeg"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </body>
+  <script>
+    var mySwiper = new Swiper(".swiper", {
+      loop: true, // 循环模式选项
+      // 速度500ms
+      speed: 500,
+      // 自动轮播2s
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      // 如果需要分页器
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
+</html>
