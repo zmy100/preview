@@ -135,4 +135,41 @@
       <div class="swiper-pagination"></div>
     </div>
   </body>
+  <script>
+    // 存储每个滑动页上元素的类名数组
+    const classArray = [
+      ["logistics-phone", "logistics-person", "logistics-text"], // 第一页的类名
+      ["purchase-phone", "purchase-person", "purchase-text"], // 第二页的类名
+    ];
+    // 初始化 Swiper
+    const swiper = new Swiper(".swiper-container", {
+      // 垂直方向进行切换
+      direction: "vertical",
+      // 分页器
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      // 支持鼠标滚轮切换
+      mousewheel: true,
+      on: {
+        // 页面加载时的动画效果
+        init() {
+          this.emit("slideChangeTransitionEnd");
+        },
+        // 切换页面时的动画效果
+        slideChangeTransitionEnd: function () {
+          // 给当前滑动页的元素添加 "active" 类名
+          classArray[this.activeIndex].forEach((id) => {
+            document.getElementById(id).classList.add(id + "-active");
+          });
+          // 给上一个滑动页的元素移除 "active" 类名
+          if (typeof this.previousIndex !== "undefined") {
+            classArray[this.previousIndex].forEach((id) => {
+              document.getElementById(id).classList.remove(id + "-active");
+            });
+          }
+        },
+      },
+    });
+  </script>
 </html>
