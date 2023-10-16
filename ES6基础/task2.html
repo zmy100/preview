@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>模板字符串的应用</title>
+    <style>
+      body {
+        padding: 50px 0 0 300px;
+        font-size: 22px;
+      }
+      ul {
+        padding: 0;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>学生信息表</p>
+    <ul id="list">
+      <li style="list-style: none">信息加载中……</li>
+    </ul>
+    <script>
+      // 定义数组
+      var personArray = [
+        {
+          username: "XiaoMing",
+          age: 18,
+          sex: "male",
+        },
+        {
+          username: "ZhangSan",
+          age: 28,
+          sex: "male",
+        },
+        {
+          username: "Lucy",
+          age: 20,
+          sex: "female",
+        },
+      ];
+      // 定义函数，判断性别
+      const getSex = (sex) => {
+        return sex === "male" ? "男" : "女";
+      };
+      // 定义空字符串
+      let liString = "";
+      // 获取ul对象
+      const ul = document.getElementById("list");
+      // 遍历personArray数组
+      for (let index = 0; index < personArray.length; index++) {
+        const element = personArray[index];
+        // 拼接字符串
+        liString += `<li>我叫${element.username},性别${getSex(
+          element.sex
+        )},今年${element.age}岁!</li>`;
+      }
+      // 把liString里面的内容写到ul标签里面
+      ul.innerHTML = liString;
+    </script>
+  </body>
+</html>
