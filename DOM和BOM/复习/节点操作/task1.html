@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <p id="one">one!!!</p>
+      <p id="two">two!!!</p>
+      <p id="three">three!!!</p>
+      <p id="four">four!!!</p>
+      <p id="five">five!!!</p>
+    </div>
+  </body>
+  <script>
+    // 找到父节点
+    var parent = document.getElementById("parent");
+    // 找到子节点
+    var one = document.getElementById("one");
+    var two = document.getElementById("two");
+    var three = document.getElementById("three");
+    var four = document.getElementById("four");
+    var five = document.getElementById("five");
+    // 找到所有的子节点
+    console.log(parent.childNodes);
+    // 找到所有的子元素节点
+    console.log(parent.children);
+  </script>
+</html>

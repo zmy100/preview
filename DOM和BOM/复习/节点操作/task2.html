@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <p id="one">one!!!</p>
+      <p id="two">two!!!</p>
+      <p id="three">three!!!</p>
+      <p id="four">four!!!</p>
+      <p id="five">five!!!</p>
+    </div>
+  </body>
+  <script>
+    // 找到父节点
+    var parent = document.getElementById("parent");
+    // 找到子节点
+    var one = document.getElementById("one");
+    var two = document.getElementById("two");
+    var three = document.getElementById("three");
+    var four = document.getElementById("four");
+    var five = document.getElementById("five");
+
+    // 找到所有的子节点
+    console.log("找到所有的子节点");
+    console.log(parent.childNodes);
+
+    // 找到所有的子元素节点
+    console.log("找到所有的子元素节点");
+    console.log(parent.children);
+
+    // 找到第一个子节点
+    console.log("找到第一个子节点");
+    console.log(parent.firstchild);
+
+    // 找到最后一个子节点
+    console.log("找到最后一个子节点");
+    console.log(parent.lastchild);
+
+    // 找到第一个子元素节点
+    console.log("找到第一个子元素节点");
+    console.log(parent.firstElementChild);
+
+    // 找到最后一个子元素节点
+    console.log("找到最后一个子元素节点");
+    console.log(parent.lastElementChild);
+
+    // 找到父节点
+    console.log("找到父节点");
+    console.log(one.parentNode);
+    console.log(two.parentNode);
+    console.log(three.parentNode);
+
+    // 找到父元素节点
+    console.log("找到父元素节点");
+    console.log(one.parentElement);
+    console.log(two.parentElement);
+    console.log(three.parentElement);
+
+    // 找到兄弟节点
+    console.log("找到兄弟节点");
+    console.log(one.nextSibling);
+    console.log(two.nextSibling);
+    console.log(three.nextSibling);
+
+    // 可以连写
+    console.log("可以连写");
+    console.log(one.nextSibling.nextSibling);
+
+    // 找到兄弟元素节点
+    console.log("找到兄弟元素节点");
+    console.log(one.nextElementSibling);
+    console.log(two.nextElementSibling);
+    console.log(three.nextElementSibling);
+
+    // 可以连写
+    console.log("可以连写");
+    console.log(one.nextElementSibling.nextElementSibling);
+
+    // 找到前一个兄弟节点
+    console.log("找到前一个兄弟节点");
+    console.log(one.previousSibling);
+    console.log(two.previousSibling);
+    console.log(three.previousSibling);
+
+    // 可以连写
+    console.log("可以连写");
+    console.log(three.previousSibling.previousSibling);
+
+    // 找到前一个兄弟元素节点
+    console.log("找到前一个兄弟元素节点");
+    console.log(one.previousElementSibling);
+    console.log(two.previousElementSibling);
+    console.log(three.previousElementSibling);
+
+    // 可以连写
+    console.log("可以连写");
+    console.log(three.previousElementSibling.previousElementSibling);
+  </script>
+</html>
