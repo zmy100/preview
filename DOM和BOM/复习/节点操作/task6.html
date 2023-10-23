@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 120px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="mytable"></table>
+    <script>
+      // 找对象
+      var table = document.getElementById("mytable");
+      // 定义空变量
+      var tr = null;
+      td = null;
+      // 遍历
+      for (var i = 1; i <= 9; i++) {
+        // 创建tr元素
+        tr = document.createElement("tr");
+        for (var j = 1; j <= i; j++) {
+          // 创建td元素
+          td = document.createElement("td");
+          // 把td元素添加到tr后面
+          tr.appendChild(td);
+          // td单元格里面添加HTNL代码
+          td.innerHTML = j + " x " + i + " = " + i * j;
+        }
+        // 把tr元素添加到table后面
+        table.appendChild(tr);
+      }
+    </script>
+  </body>
+</html>

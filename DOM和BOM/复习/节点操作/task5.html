@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <div>
+          <a href="#">a1</a><a href="#">a2</a><a href="#">a3</a
+          ><a href="#">a4</a><a href="#">a5</a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">a1</a><a href="#">a2</a><a href="#">a3</a
+          ><a href="#">a4</a><a href="#">a5</a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">a1</a><a href="#">a2</a><a href="#" id="a3">a3</a
+          ><a href="#">a4</a><a href="#">a5</a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">a1</a><a href="#">a2</a><a href="#">a3</a
+          ><a href="#">a4</a><a href="#">a5</a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">a1</a><a href="#">a2</a><a href="#">a3</a
+          ><a href="#">a4</a><a href="#">a5</a>
+        </div>
+      </li>
+    </ul>
+    <script>
+      // 获取a3元素(id为a3)
+      var a3 = document.getElementById("a3");
+      // 打印a3的所有兄弟元素
+      console.log(getSiblings(a3));
+      // 打印a3
+      console.log(a3);
+      // 定义一个函数
+      function getSiblings(element) {
+        // 所以兄弟
+        var result = [];
+        // 所以弟弟
+        var next = [];
+        // 所以哥哥
+        var previous = [];
+        // 定义一个临时变量
+        var tmp = element;
+        // 找弟弟
+        while (tmp.nextElementSibling) {
+          next.push(tmp.nextElementSibling);
+          tmp = tmp.nextElementSibling;
+        }
+        // 找哥哥
+        tmp = element;
+        while (tmp.previousElementSibling) {
+          previous.unshift(tmp.previousElementSibling);
+          tmp = tmp.previousElementSibling;
+        }
+        // 所有的哥哥元素和弟弟元素连接起来
+        result = previous.concat(next);
+        // 返回所有的兄弟
+        return result;
+      }
+    </script>
+  </body>
+</html>
