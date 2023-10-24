@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Promise 是什么</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: olivedrab;
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      // 方法三:Promise
+      // 找对象
+      const div = document.getElementById("box");
+      // 定义移动函数
+      const move = (obj, x, y) => {
+        obj.style.transform = `translate(${x}px,${y}px)`;
+        return new Promise((resolve) => {
+          obj.ontransitionend = () => {
+            resolve();
+          };
+        });
+      };
+      // 给div添加点击事件
+      div.onclick = function () {
+        move(this, 150, 0)
+          .then(() => {
+            return move(this, 150, 150);
+          })
+          .then(() => {
+            return move(this, 0, 150);
+          })
+          .then(() => {
+            return move(this, 0, 0);
+          });
+      };
+    </script>
+  </body>
+</html>

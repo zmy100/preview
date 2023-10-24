@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Promise 是什么</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: olivedrab;
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      // 方法一:setTimeOut 嵌套写法
+      // 找对象
+      const div = document.getElementById("box");
+      // 给div添加点击事件
+      div.onclick = function () {
+        this.style.transform = `translate(150px,0)`;
+        setTimeout(() => {
+          this.style.transform = `translate(150px,150px)`;
+          setTimeout(() => {
+            this.style.transform = `translate(0,150px)`;
+            setTimeout(() => {
+              this.style.transform = `translate(0,0)`;
+            }, 500);
+          }, 500);
+        }, 500);
+      };
+    </script>
+  </body>
+</html>
