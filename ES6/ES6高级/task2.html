@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // People类
+    class People {
+      constructor(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+      introduce() {}
+    }
+    // Student类 继承自People类
+    class Student extends People {
+      constructor(name, age, sex, hobby) {
+        super(name, age, sex);
+        this.hobby = hobby;
+      }
+      introduce() {}
+    }
+    // Teacher类 继承自People类
+    class Teacher extends People {
+      constructor(name, age, sex, rank, salary) {
+        super(name, age, sex);
+        this.rank = rank;
+        this.salary = salary;
+      }
+      introduce() {
+        console.log(
+          `我是${this.name}老师, 性别${this.sex}, ${this.age}岁, 现担任${this.rank}一职, 工资到手${this.salary}, 我很幸福`
+        );
+      }
+    }
+    // Pupil类 继承自Student类
+    class Pupil extends Student {
+      constructor(name, age, sex, hobby, birthday) {
+        super(name, age, sex, hobby);
+        this.birthday = birthday;
+      }
+      introduce() {
+        console.log(
+          `您好, 我叫${this.name}, 是一个${this.sex}生, 今年${this.age}岁了, 喜欢${this.hobby}, ${this.birthday}是我的生日`
+        );
+      }
+    }
+    // Undergraduate类 继承自Student类
+    class Undergraduate extends Student {
+      constructor(name, age, sex, hobby, major, school, loverName) {
+        super(name, age, sex, hobby);
+        this.major = major;
+        this.school = school;
+        this.loverName = loverName;
+      }
+      introduce() {
+        console.log(
+          `你好, 我的姓名叫${this.name}, 今年${this.age}, 性别${this.sex}, 就读于${this.school}, ${this.major}, 爱好${this.hobby}, 我的${this.loverName}`
+        );
+      }
+    }
+    // 打印输出
+    // 小学生类
+    const xiaoming = new Pupil(
+      "小明",
+      "5",
+      "男",
+      "看《奥特曼》",
+      "2016年4月1日"
+    );
+    const xiaohong = new Pupil(
+      "小红",
+      "4",
+      "女",
+      "看《喜洋洋与灰太狼》",
+      "2017年6月2日"
+    );
+    xiaoming.introduce();
+    xiaohong.introduce();
+    // 大学生类
+    const lilei = new Undergraduate(
+      "李雷",
+      "18",
+      "男",
+      "看电影",
+      "日语专业",
+      "哈尔滨工业大学",
+      "女朋友叫韩梅梅"
+    );
+    const hanmeimei = new Undergraduate(
+      "韩梅梅",
+      "21",
+      "女",
+      "钓鱼",
+      "土木工程",
+      "海南大学",
+      "男朋友叫李雷"
+    );
+    lilei.introduce();
+    hanmeimei.introduce();
+    // 老师类
+    const zhangsanqiang = new Teacher("张三强", "53", "男", "系主任", "1800");
+    zhangsanqiang.introduce();
+  </script>
+</html>
