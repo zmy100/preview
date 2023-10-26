@@ -1,0 +1,8 @@
+div.wife {
+  width: 720px;
+  height: 405px;
+  background-image: url(./img/wife.png);
+  border-radius: 10px;
+  border: 5px solid #000;
+}
+
