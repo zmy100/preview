@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>输出对象</title>
+    <!-- 引入 art-template -->
+    <script src="https://unpkg.com/art-template@4.13.2/lib/template-web.js"></script>
+  </head>
+  <body>
+    <div class="content"></div>
+    <!-- 导入模板 -->
+    <script id="tpl" type="text/html">
+      {{data}} <br />
+      {{data.username}} <br />
+      {{data.age}} <br />
+      {{data['username']}} <br />
+      {{data['age']}} <br />
+    </script>
+    <script>
+      const div = document.querySelector(".content");
+      div.innerHTML = template("tpl", {
+        data: {
+          username: "zhangsan",
+          age: 18,
+        },
+      });
+    </script>
+  </body>
+</html>

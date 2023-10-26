@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>学生信息表</p>
+    <ul id="list"></ul>
+
+    <script>
+      const students = [
+        {
+          name: "张三",
+          age: 28,
+          sex: "male",
+        },
+        {
+          name: "李四",
+          age: 20,
+          sex: "female",
+        },
+        {
+          name: "王五",
+          age: 18,
+          sex: "male",
+        },
+      ];
+      // 找对象
+      const ul = document.getElementById("list");
+      // 定义空字符串
+      let ulString = "";
+      // 遍历students对象
+      for (const iterator of students) {
+        ulString += `<li>${iterator.name}, 今年${iterator.age}岁, 性别${
+          iterator.sex === "male" ? "男" : "女"
+        }</li>`;
+      }
+      ul.innerHTML = ulString;
+    </script>
+  </body>
+</html>
