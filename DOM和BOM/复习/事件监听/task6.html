@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <input type="text" id="num1" />
+    <select id="operate">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text" id="num2" />
+    <input type="button" value=" = " id="btn" />
+    <input type="text" id="result" />
+  </body>
+  <script>
+    // 计算按钮
+    var button = document.getElementById("btn");
+    button.onclick = function () {
+      // 数字num1,num2
+      var num1 = parseInt(document.getElementById("num1").value);
+      var num2 = parseInt(document.getElementById("num2").value);
+      // 运算符选择
+      var select = document.getElementById("operate").value;
+      // 计算结果
+      var result = document.getElementById("result");
+      // 定义一个空变量
+      var num3 = 0;
+      switch (select) {
+        case "+":
+          num3 = num1 + num2;
+          break;
+        case "-":
+          num3 = num1 - num2;
+          break;
+        case "*":
+          num3 = num1 * num2;
+          break;
+        case "/":
+          num3 = num1 / num2;
+          break;
+      }
+      result.value = num3;
+    };
+  </script>
+</html>

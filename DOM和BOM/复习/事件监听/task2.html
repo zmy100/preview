@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>onload</title>
+  </head>
+  <body>
+    <input type="button" value="点击改变按钮字体颜色" />
+  </body>
+  <script type="text/javascript">
+    // 找对象
+    var input = document.querySelector("input");
+    // 给按钮添加鼠标点击事件
+    input.onclick = function () {
+      input.style.color = "red";
+    };
+    // 给按钮添加鼠标移出事件
+    input.onmouseleave = function () {
+      input.style.color = "gray";
+    };
+  </script>
+</html>

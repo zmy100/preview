@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>输入文本</title>
+  </head>
+  <body>
+    <p>
+      字数限制在30字内，<span>您还可以输入<b>30</b> 字</span>
+    </p>
+    <textarea cols="50" rows="7" id="text"></textarea>
+  </body>
+  <script type="text/javascript">
+    // 找对象
+    var span = document.querySelector("span");
+    var textarea = document.querySelector("textarea");
+    // 定义剩余字数
+    var num = 0;
+    // 给文本域添加事件
+    textarea.oninput = function () {
+      num = 30;
+      // 减去用户输入的字数
+      num -= this.value.length;
+      // 如果剩余字数大于0，提示还可以输入...
+      if (num > 0) {
+        span.innerHTML = `您还可以输入<b>${num}</b> 字`;
+      } else {
+        // 如果剩余字数小于0，提示已超出...
+        span.innerHTML = `您已超出<b>${Math.abs(num)}</b> 字`;
+      }
+    };
+  </script>
+</html>
