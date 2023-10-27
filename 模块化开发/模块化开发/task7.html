@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>获取所有数据</title>
+    <title>输出转义后的数据</title>
     <!-- 引入 art-template -->
     <script src="https://unpkg.com/art-template@4.13.2/lib/template-web.js"></script>
   </head>
@@ -11,18 +11,14 @@
     <div class="content"></div>
     <!-- 导入模板 -->
     <script id="tpl" type="text/html">
-      {{$data}} <br />
+      <!-- 输出转义后的结果 -->
+      {{text}} <br />
+      <!-- 原文输出 -->
+      {{@text}} <br />
     </script>
     <script>
       document.querySelector(".content").innerHTML = template("tpl", {
-        value: 1,
-        data: {
-          username: "zhangsan",
-          age: 18,
-        },
-        arr: ["one", "two", "three"],
-        num1: 123,
-        num2: 456,
+        text: "<b>重要的内容!</b>",
       });
     </script>
   </body>

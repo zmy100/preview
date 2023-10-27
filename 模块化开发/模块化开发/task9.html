@@ -3,26 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>获取所有数据</title>
+    <title>if语句</title>
     <!-- 引入 art-template -->
     <script src="https://unpkg.com/art-template@4.13.2/lib/template-web.js"></script>
   </head>
   <body>
     <div class="content"></div>
-    <!-- 导入模板 -->
     <script id="tpl" type="text/html">
-      {{$data}} <br />
+      {{if sex==="male"}}是个小哥哥{{else if
+      sex==="female"}}是个小姐姐{{else}}我也不知道是什么...{{/if}}
     </script>
     <script>
       document.querySelector(".content").innerHTML = template("tpl", {
-        value: 1,
-        data: {
-          username: "zhangsan",
-          age: 18,
-        },
-        arr: ["one", "two", "three"],
-        num1: 123,
-        num2: 456,
+        sex: "female",
       });
     </script>
   </body>

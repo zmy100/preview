@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>循环语句</title>
+    <!-- 引入 art-template -->
+    <script src="https://unpkg.com/art-template@4.13.2/lib/template-web.js"></script>
+  </head>
+  <body>
+    <p>学生信息表</p>
+    <ul id="list"></ul>
+    <script id="tpl-student" type="text/html">
+      {{each students}}
+      <li>
+        第{{$index+1}}位同学:{{$value.name}},今年{{$value.age}}岁,性别{{$value.sex==="male"?"男":"女"}}
+      </li>
+      {{/each}}
+    </script>
+    <script>
+      const students = [
+        {
+          name: "张三",
+          age: 28,
+          sex: "male",
+        },
+        {
+          name: "李四",
+          age: 20,
+          sex: "female",
+        },
+        {
+          name: "王五",
+          age: 18,
+          sex: "male",
+        },
+      ];
+      document.querySelector("ul").innerHTML = template("tpl-student", {
+        students,
+      });
+    </script>
+  </body>
+</html>
