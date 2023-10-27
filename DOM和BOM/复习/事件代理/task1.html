@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <input type="text" class="textInput" />
+    <button id="btn">添加</button>
+    <ul class="list">
+      <li class="li">吃饭</li>
+      <li class="li">睡觉</li>
+      <li class="li">打豆豆</li>
+    </ul>
+  </body>
+  <script>
+    // 找对象
+    // input框
+    var input = document.querySelector("input");
+    // 按钮
+    var btn = document.getElementById("btn");
+    // ul列表
+    var ul = document.querySelector(".list");
+    // 给按钮绑定点击事件
+    btn.onclick = function () {
+      // 创建一个li的孤儿节点
+      var li = document.createElement("li");
+      // 如果input.value有值，则把其内容写到li里面
+      if (input.value) {
+        // 点击按钮，input框的值赋给li
+        li.innerHTML = input.value;
+        // 把li添加到ul里面
+        ul.appendChild(li);
+        // input框里面的值清空
+        input.value = "";
+      } else {
+        // 如果没有输入内容，提示用户输入内容
+        alert("请输入内容!");
+      }
+    };
+    // 给li标签的父元素ul绑定点击事件
+    ul.onclick = function (e) {
+      li = e.target;
+      li.style.display = "none";
+    };
+  </script>
+</html>
