@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>倒计时时钟</title>
+    <style>
+      body,
+      div {
+        margin: 0;
+        padding: 0;
+      }
+      #countdown {
+        width: 300px;
+        text-align: center;
+        margin: 10px auto;
+        padding: 20px 0;
+      }
+      span {
+        color: #000;
+        width: 80px;
+        line-height: 2;
+        background: #fbfbfb;
+        border: 2px solid #b4b4b4;
+        margin: 0 10px;
+        padding: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown">
+      <span>01</span>
+      分钟
+      <span>20</span>
+      秒
+      <input type="button" value="启动" />
+      <input type="button" value="暂停" />
+    </div>
+  </body>
+  <script>
+    // 找对象
+    // span标签
+    var minute = document.querySelector("span:nth-of-type(1)");
+    var second = document.querySelector("span:nth-of-type(2)");
+    // 按钮
+    var startButton = document.querySelector("input:nth-of-type(1)");
+    var pauseButton = document.querySelector("input:nth-of-type(2)");
+    // 定义一个变量，记录倒计时的时间
+    var timerNumber =
+      parseInt(minute.innerText) * 60 + parseInt(second.innerText);
+    // 分钟数
+    var minuteNumber = 0;
+    // 秒数
+    var secondNumber = 0;
+    // 间隔执行函数的返回值
+    var intervalNumber = 0;
+    // 是否开启倒计时的标记
+    var isStart = false;
+    // 给启动按钮添加点击事件
+    startButton.onclick = function () {
+      // 如果之前已经开启了倒计时，则不再执行下面的代码
+      if (isStart) {
+        return;
+      }
+      //一旦开始倒计时，标记间隔执行函数已经开启
+      isStart = true;
+      intervalNumber = setInterval(() => {
+        timerNumber--;
+        // 计算分钟数
+        minuteNumber = Math.floor(timerNumber / 60);
+        // 计算秒数
+        secondNumber = timerNumber % 60;
+        // 分钟数前补0
+        if (minuteNumber < 10 && minuteNumber >= 0) {
+          minuteNumber = "0" + minuteNumber;
+        }
+        // 秒数数前补0
+        if (secondNumber < 10 && secondNumber >= 0) {
+          secondNumber = "0" + secondNumber;
+        }
+        minute.innerText = minuteNumber;
+        second.innerText = secondNumber;
+        // 分钟数和秒数都为00时,清除间隔执行函数
+        if (minuteNumber == "00" && secondNumber == "00") {
+          clearInterval(intervalNumber);
+          // 启动按钮不可点击
+          startButton.disabled = "none";
+        }
+      }, 100);
+    };
+    // 给暂停按钮添加点击事件
+    pauseButton.onclick = function () {
+      // 清除间隔执行函数
+      clearInterval(intervalNumber);
+      // 暂停倒计时
+      isStart = false;
+    };
+  </script>
+</html>
