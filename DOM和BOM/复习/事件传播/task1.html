@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+      body {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    // 找对象
+    var div = document.querySelector("div");
+    var body = document.body;
+    // 定义变量，记录鼠标的初始位置
+    var mouseX = 0;
+    var mouseY = 0;
+    // 标记是否可以移动，默认不能移动
+    var isMove = false;
+    // 给div添加鼠标按下事件
+    div.addEventListener("mousedown", function (e) {
+      // 鼠标按下，可以移动
+      isMove = true;
+      // 记录鼠标按下时的坐标
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    // 给body添加鼠标松开事件
+    body.addEventListener("mouseup", function () {
+      // 鼠标按下松开，不可以移动
+      isMove = false;
+    });
+    // 给body添加鼠标移动事件
+    body.addEventListener("mousemove", function (e) {
+      // 判断是否可以移动，如果不可以移动，则返回
+      if (!isMove) {
+        return;
+      }
+      // 如果可以移动，则执行以下代码
+      // 计算鼠标移动的距离
+      var moveX = e.clientX - mouseX;
+      var moveY = e.clientY - mouseY;
+      // 记录鼠标的坐标
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // 修改div的位置
+      div.style.left =
+        parseInt(document.defaultView.getComputedStyle(div)["left"]) +
+        moveX +
+        "px";
+      div.style.top =
+        parseInt(document.defaultView.getComputedStyle(div)["top"]) +
+        moveY +
+        "px";
+    });
+  </script>
+</html>
