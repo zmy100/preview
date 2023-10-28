@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 260px;
+        height: 260px;
+        border: 20px solid red;
+        margin: 20px auto;
+        position: relative;
+      }
+      .inner {
+        width: 160px;
+        height: 160px;
+        border: 20px solid green;
+        margin: 20px auto;
+        /* position: relative; */
+      }
+      .center {
+        width: 60px;
+        height: 60px;
+        border: 20px solid blue;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer" class="outer">
+      <div id="inner" class="inner">
+        <div id="center" class="center"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 找到最外层
+    var outer = document.getElementById("outer");
+    // 找到中间
+    var inner = document.getElementById("inner");
+    // 找到最里面
+    var center = document.getElementById("center");
+    // 最外层的父级参照物
+    console.log(outer.offsetParent);
+    // 中间层的父级参照物
+    console.log(inner.offsetParent);
+    // 最里层的父级参照物
+    console.log(center.offsetParent);
+  </script>
+</html>

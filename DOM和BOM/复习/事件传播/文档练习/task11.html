@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      用户名: <input type="text" name="usernmae" /> <br /><br />
+      密码: <input type="password" id="" name="password" /> <br /><br />
+      <button>提交</button>
+    </form>
+    <script>
+      // 找对象
+      var button = document.querySelector("button");
+      var username = document.querySelector("input[type=text]");
+      var password = document.querySelector("input[type=password]");
+      // 添加点击事件, 点击触发表单验证
+      button.onclick = function (e) {
+        if (username.value === "") {
+          // 阻止默认事件
+          e.preventDefault();
+          console.log("用户名不能为空");
+        }
+        if (password.value === "") {
+          // 阻止默认事件
+          e.preventDefault();
+          console.log("密码不能为空");
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+        border: 10px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      // 找到div元素
+      var div = document.querySelector("div");
+      // 查看div的属性
+      // 内容的宽度(width) + padding(left / right) + border(left / right)
+      console.log(div.offsetWidth); // 240
+      // 内容的宽度(width) + padding(left / right)
+      console.log(div.clientWidth); // 220
+      // 内容的高度(height) + padding(top / bottom) + border(top / bottom)
+      console.log(div.offsetHeight); // 240
+      // 内容的高度(height) + padding(top / bottom)
+      console.log(div.clientHeight); // 220
+    </script>
+  </body>
+</html>

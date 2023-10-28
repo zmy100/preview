@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>1号技师</button>
+  </body>
+  <script>
+    var button = document.querySelector("button");
+    // DOM0 级写法后面写的会覆盖先写的
+    button.onclick = function () {
+      console.log("111");
+    };
+    button.onclick = function () {
+      console.log("222");
+    };
+    button.onclick = function () {
+      console.log("333");
+    };
+  </script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>1号技师</button>
+  </body>
+  <script>
+    var button = document.querySelector("button");
+    // DOM2 级会按顺序执行
+    button.addEventListener("click", function () {
+      console.log("111");
+    });
+    button.addEventListener("click", function () {
+      console.log("222");
+    });
+    button.addEventListener("click", function () {
+      console.log("333");
+    });
+    button.addEventListener("click", function () {
+      console.log("444");
+    });
+    button.addEventListener("click", function () {
+      console.log("555");
+    });
+  </script>
+</html>
