@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入cookie封装js·· -->
+    <script src="./cookie.js"></script>
+    <style>
+      form {
+        text-align: center;
+      }
+      .login {
+        background-color: #008000;
+      }
+      .delete {
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="get">
+      用户名:
+      <input
+        type="text"
+        class="username"
+        name="username"
+        placeholder="请输入用户名"
+      />
+      <br /><br />
+      <button class="login">登录</button>
+      <button class="delete">删除</button>
+    </form>
+  </body>
+  <script>
+    // 找对象
+    // input框
+    var input = document.querySelector("input");
+    //登录按钮
+    var btn1 = document.querySelector(".login");
+    //删除按钮
+    var btn2 = document.querySelector(".delete");
+    // 登录按钮绑定点击事件
+    btn1.onclick = function (e) {
+      // 阻止默认事件
+      e.preventDefault();
+      // 获取input中的值
+      var username = input.value;
+      // 将用户名写到cookie中
+      setCookie("username", username, { maxAge: 7 * 24 * 3600 });
+    };
+    // 删除按钮绑定点击事件
+    btn2.onclick = function (e) {
+      // 阻止默认事件
+      e.preventDefault();
+      // 删除cookie中的username
+      removeCookie("username");
+      // 将input中的值清空
+      input.value = "";
+    };
+    // 如果cookie中有username，写入到input中
+    var username = getCookie("username");
+    // 如果username有值
+    if (username) {
+      // 将username写入到input中
+      input.value = username;
+    }
+  </script>
+</html>
