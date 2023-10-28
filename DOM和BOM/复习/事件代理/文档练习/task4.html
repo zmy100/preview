@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击添加新的元素</button>
+    <ul id="list">
+      <!-- 最内层元素不能再有额外的内层元素 -->
+      <li><span>我是span</span>列表项</li>
+      <li><span>我是span</span>列表项</li>
+      <li><span>我是span</span>列表项</li>
+    </ul>
+  </body>
+  <script>
+    // 找对象
+    var ul = document.querySelector("ul");
+    var btn = document.querySelector("button");
+    var lis = document.querySelectorAll("li");
+
+    // 给父元素添加点击事件
+    ul.onclick = function (e) {
+      var li = e.target;
+      // 给这个子元素, 改变背景色
+      li.style.backgroundColor = "orangered";
+    };
+  </script>
+</html>

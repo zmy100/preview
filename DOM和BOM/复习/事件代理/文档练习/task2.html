@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击添加新的元素</button>
+    <ul>
+      <li>这是第1个li</li>
+      <li>这是第2个li</li>
+      <li>这是第3个li</li>
+      <li>这是第4个li</li>
+      <li>这是第5个li</li>
+    </ul>
+  </body>
+  <script>
+    // 找对象
+    var btn = document.querySelector("button");
+    var ul = document.querySelector("ul");
+    var liArray = document.querySelectorAll("li");
+    // 给li标签的父元素ul标签添加点击事件,点击哪个li标签哪个li标签的颜色就改变
+    ul.onclick = function (e) {
+      e.target.style.backgroundColor = "red";
+    };
+    // 给按钮添加点击事件
+    btn.onclick = function () {
+      // 创建li孤儿节点
+      var li = document.createElement("li");
+      // 给li里面添加内容
+      li.innerHTML = `这是第${ul.children.length + 1}个li`;
+      // 把li加到ul里面
+      ul.appendChild(li);
+    };
+  </script>
+</html>
