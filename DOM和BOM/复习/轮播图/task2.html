@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel ul {
+        list-style: none;
+        width: 6000px;
+        position: relative;
+        left: 0px;
+        transition: left 0.5s ease 0s;
+      }
+      .carousel ul li {
+        float: left;
+      }
+      .carousel .leftbtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+      .carousel .rightbtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul id="list">
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+        <li><img src="images/beijing/1.jpg" alt="" /></li>
+        <li><img src="images/beijing/2.jpg" alt="" /></li>
+        <li><img src="images/beijing/3.jpg" alt="" /></li>
+        <li><img src="images/beijing/4.jpg" alt="" /></li>
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+      </ul>
+      <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
+      <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
+    </div>
+    <script>
+      // 找对象
+      // 轮播图
+      var carousel = document.querySelector(".carousel");
+      // ul标签
+      var ul = document.getElementById("list");
+      // 左按钮
+      var leftbtn = document.getElementById("leftbtn");
+      // 右按钮
+      var rightbtn = document.getElementById("rightbtn");
+      // 定义一个变量，记录当前图片的位置
+      var currentPosition = 0;
+      // 上锁
+      var lock = false;
+      // 定时器标记
+      var timer = null;
+      // 给左按钮添加点击事件
+      leftbtn.onclick = function () {
+        // 如果上锁了，则返回
+        if (lock) {
+          return;
+        }
+        // 如果没有上锁，上锁，进行下面的代码
+        lock = true;
+        // 判断当前图片的位置，如果在第一张就瞬间移动到最后一张
+        if (currentPosition === 0) {
+          // 关闭动画
+          ul.style.transition = "none";
+          currentPosition = -3250;
+          ul.style.left = currentPosition + "px";
+        }
+        // 给浏览器一些时间来处理“关闭过渡”后的状态，然后再启用过渡
+        setTimeout(function () {
+          // 开启动画
+          ul.style.transition = "left 0.5s ease 0s";
+          currentPosition += 650;
+          ul.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          // 解锁
+          lock = false;
+        }, 500);
+      };
+      // 给右按钮添加点击事件
+      rightbtn.onclick = function () {
+        // 如果上锁了，则返回
+        if (lock) {
+          return;
+        }
+        // 如果没有上锁，上锁，进行下面的代码
+        lock = true;
+        // 判断当前图片的位置，如果在最后一张就瞬间移动到第一张
+        if (currentPosition === -3250) {
+          // 关闭动画
+          ul.style.transition = "none";
+          currentPosition = 0;
+          ul.style.left = currentPosition + "px";
+        }
+        // 给浏览器一些时间来处理“关闭过渡”后的状态，然后再启用过渡
+        setTimeout(function () {
+          // 开启动画
+          ul.style.transition = "left 0.5s ease 0s";
+          currentPosition -= 650;
+          ul.style.left = currentPosition + "px";
+        }, 0);
+        setTimeout(function () {
+          // 解锁
+          lock = false;
+        }, 500);
+      };
+      // 给轮播图添加自动滚动效果,每2秒自动切换一张图片
+      timer = setInterval(function () {
+        rightbtn.click();
+      }, 2000);
+      // 鼠标移入轮播图，停止自动切换图片
+      carousel.onmouseover = function () {
+        // 清空定时器
+        clearInterval(timer);
+      };
+      // 鼠标移出轮播图，恢复自动切换图片
+      carousel.onmouseout = function () {
+        // 重新开启定时器
+        timer = setInterval(function () {
+          rightbtn.click();
+        }, 2000);
+      };
+    </script>
+  </body>
+</html>

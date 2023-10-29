@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 1000px;
+        height: 130px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        overflow: hidden;
+      }
+      .box ul {
+        list-style: none;
+        /* 设置大一点，这样li才能浮动 */
+        width: 5000px;
+        position: relative;
+      }
+      .box ul li {
+        float: left;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box">
+      <ul id="list">
+        <li><img src="images/number/0.png" alt="" /></li>
+        <li><img src="images/number/1.png" alt="" /></li>
+        <li><img src="images/number/2.png" alt="" /></li>
+        <li><img src="images/number/3.png" alt="" /></li>
+        <li><img src="images/number/4.png" alt="" /></li>
+        <li><img src="images/number/5.png" alt="" /></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // 找对象
+    var ul = document.getElementById("list");
+    // 复制图片
+    ul.innerHTML += ul.innerHTML;
+    // 定义变量，控制图片的移动
+    var left = 0;
+    // 定时器标记
+    var timer = null;
+    // 定义移动函数
+    function move() {
+      // 开启定时器之前，清除定时器
+      clearInterval(timer);
+      // 开启定时器
+      timer = setInterval(() => {
+        // 判断图片位置
+        if (left === -1260) {
+          // 图片位置瞬间移动回第一张
+          left = 0;
+        }
+        // 向左移动
+        left -= 5;
+        ul.style.left = left + "px";
+      }, 10);
+    }
+    // 进入页面，开始滚动
+    move();
+    // 添加鼠标移入停止滚动事件
+    ul.onmouseover = function () {
+      // 清空定时器
+      clearInterval(timer);
+    };
+    // 添加鼠标移出恢复滚动事件
+    ul.onmouseout = function () {
+      // 开始滚动
+      move();
+    };
+  </script>
+</html>
