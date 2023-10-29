@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>这是第 <span class="count"></span> 次访问这个页面</h1>
+  </body>
+  <script>
+    // 找对象,span标签
+    const span = document.querySelector("span");
+    // 获取本地存储中的计数值，如果不存在则默认为0
+    let count = localStorage.getItem("count") || 0;
+    // 把count转换成数字类型
+    count = +count;
+    // 给span标签里面填充内容，并递增计数值
+    span.innerHTML = ++count;
+    // 更新本地存储中的计数值
+    localStorage.setItem("count", count);
+  </script>
+</html>

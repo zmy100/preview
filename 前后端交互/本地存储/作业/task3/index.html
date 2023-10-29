@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>todolist</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div class="topNav">
+          <h3>TodoList</h3>
+          <form id="form" action="javascript:postaction()" method="post">
+            <input
+              type="text"
+              name="todoList"
+              id="inputTodo"
+              placeholder="输入内容"
+              required="required"
+              autocomplete="off"
+            />
+          </form>
+        </div>
+      </div>
+      <div class="todo">
+        <div class="lists">
+          <div class="todoNav" id="todoNav">
+            <span class="title1">正在进行</span>
+            <span class="todoCount" id="todoCount">3</span>
+          </div>
+          <div class="todoList">
+            <ul id="todoList">
+              <li id="li-5">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  onchange="change(5,false)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="5"
+                  value="666"
+                  onchange="update(5)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(5)"
+                  >-</span
+                >
+              </li>
+              <li id="li-4">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  onchange="change(4,false)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="4"
+                  value="555"
+                  onchange="update(4)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(4)"
+                  >-</span
+                >
+              </li>
+              <li id="li-3">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  onchange="change(3,false)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="3"
+                  value="444"
+                  onchange="update(3)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(3)"
+                  >-</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="done">
+        <div class="lists1">
+          <div class="doneNav">
+            <span class="title2">已经完成</span>
+            <span class="doneCount" id="doneCount">3</span>
+          </div>
+          <div class="doneList">
+            <ul id="doneList">
+              <li id="li-2">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  checked="checked"
+                  onchange="change(2,true)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="2"
+                  value="333"
+                  onchange="update(2)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(2)"
+                  >-</span
+                >
+              </li>
+              <li id="li-1">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  checked="checked"
+                  onchange="change(1,true)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="1"
+                  value="222"
+                  onchange="update(1)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(1)"
+                  >-</span
+                >
+              </li>
+              <li id="li-0">
+                <input
+                  class="checkBox"
+                  type="checkbox"
+                  style="float: left"
+                  checked="checked"
+                  onchange="change(0,true)"
+                /><input
+                  class="content"
+                  type="text"
+                  style="float: left"
+                  id="0"
+                  value="111"
+                  onchange="update(0)"
+                /><span
+                  class="listSpan"
+                  style="float: right"
+                  onclick="remove(0)"
+                  >-</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="siteFoot">
+        <div class="foot">
+          <p>
+            Copyright © 2014 todolist.cn
+            <a style="color: #8c9796" href="javascript:clear()">clear</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>
