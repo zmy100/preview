@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel ul {
+        list-style: none;
+        width: 6000px;
+        position: relative;
+        left: 0px;
+        transition: left 0.5s ease 0s;
+      }
+      .carousel ul li {
+        float: left;
+      }
+      .carousel .leftbtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+      .carousel .rightbtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(28, 180, 226);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul id="list">
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+        <li><img src="images/beijing/1.jpg" alt="" /></li>
+        <li><img src="images/beijing/2.jpg" alt="" /></li>
+        <li><img src="images/beijing/3.jpg" alt="" /></li>
+        <li><img src="images/beijing/4.jpg" alt="" /></li>
+        <li><img src="images/beijing/0.jpg" alt="" /></li>
+      </ul>
+      <a href="javascript:;" class="leftbtn" id="leftbtn"></a>
+      <a href="javascript:;" class="rightbtn" id="rightbtn"></a>
+    </div>
+    <!-- 跑马灯轮播图特效 -->
+    <script>
+      //找对象
+      var leftbtn = document.getElementById("leftbtn");
+      var rightbtn = document.getElementById("rightbtn");
+      var ul = document.getElementById("list");
+      // 定义一个变量，表示当前是第几张图片
+      var currentPosition = 0;
+      // 上锁，默认开锁
+      var lock = false;
+      // 添加点击事件
+      // 左按钮
+      leftbtn.onclick = function () {
+        // 如果上锁了，返回，不执行下面代码
+        if (lock) {
+          return;
+        }
+        // 上锁
+        lock = true;
+        // 点击一下按钮图片切换到上一张
+        currentPosition--;
+        // 判断，瞬间拉回
+        if (currentPosition == -1) {
+          currentPosition = 4;
+          // 取消过渡，瞬间拉回
+          ul.style.transition = "none";
+          ul.style.left = "-3250px";
+        }
+        setTimeout(function () {
+          // 切下一张
+          ul.style.transition = "left 0.5s ease 0s";
+          ul.style.left = "-" + currentPosition * 650 + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+      // 右按钮
+      rightbtn.onclick = function () {
+        // 如果上锁了，返回，不执行下面代码
+        if (lock) {
+          return;
+        }
+        // 上锁
+        lock = true;
+        // 点击一下按钮图片切换到下一张
+        currentPosition++;
+        // 判断，瞬间拉回
+        if (currentPosition == 6) {
+          currentPosition = 1;
+          // 取消过渡，瞬间拉回
+          ul.style.transition = "none";
+          ul.style.left = 0;
+        }
+        setTimeout(function () {
+          // 切下一张
+          ul.style.transition = "left 0.5s ease 0s";
+          ul.style.left = "-" + currentPosition * 650 + "px";
+        }, 0);
+        setTimeout(function () {
+          lock = false;
+        }, 500);
+      };
+    </script>
+  </body>
+</html>
