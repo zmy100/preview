@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get 请求 携带数据</title>
+  </head>
+  <body>
+    <script>
+      // ajax请求
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.responseText);
+          }
+        }
+      };
+      xhr.open(
+        "get",
+        "https://api.vvhan.com/api/la.ji?lj=手机&number=3&brand=xiaomi",
+        true
+      );
+      xhr.send("brand=xiaomi");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 JSONP 实现跨域</title>
+  </head>
+  <body>
+    <!-- 动态加载接口 -->
+    <script>
+      // 生成script标签, 并放到body的最后
+      const script = document.createElement("script");
+      script.src =
+        "http://suggest.taobao.com/sug?code=utf-8&q=卫衣&callback=cb";
+      document.body.appendChild(script);
+      // 声明函数, 接收并处理数据
+      const cb = (data) => {
+        console.log(data);
+      };
+    </script>
+  </body>
+</html>

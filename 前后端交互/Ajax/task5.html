@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post 请求 数据格式</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      姓名:<input type="text" name="username" /><br /><br />
+      昵称:<input type="text" name="nickname" /><br /><br />
+      密码:<input type="password" name="password" /><br /><br />
+      <input type="submit" value="提交" />
+    </form>
+    <script>
+      // ajax请求
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.responseText);
+          }
+        }
+      };
+      // 数据是对象格式
+      const data = {
+        username: "zhangsan",
+        nickname: "hello",
+        password: "123456",
+      };
+      // 发送请求, post方式, true表示使用异步请求的方式
+      xhr.open(
+        "post",
+        `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent("手机")}`,
+        true
+      );
+      // 直接写对象, 会变成[object Object]
+      // xhr.send(data);
+      // 使用 JSON.stringify() 把对象转成字符串
+      xhr.send(JSON.stringify(data));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax 的使用步骤</title>
+  </head>
+  <body></body>
+  <script>
+    // ajax请求
+    // 创建xhr对象
+    const xhr = new XMLHttpRequest();
+    // 监听事件，处理响应
+    xhr.onreadystatechange = () => {
+      // 如果不等于状态4，则返回
+      if (xhr.readyState !== 4) return;
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+        console.log("正常使用响应数据");
+        console.log(xhr.responseText);
+      }
+    };
+    // 准备发送请求
+    xhr.open("get", "https://www.happy-learning.cn/douban/index.php", true);
+    // 发送请求
+    xhr.send(null);
+  </script>
+</html>

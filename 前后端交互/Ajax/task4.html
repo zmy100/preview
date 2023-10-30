@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post 请求 携带数据</title>
+  </head>
+  <body>
+    <script>
+      // ajax请求
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.responseText);
+          }
+        }
+      };
+      // 发送请求, post方式, true表示使用异步请求的方式
+      xhr.open(
+        "post",
+        `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent("手机")}`,
+        true
+      );
+      // POST 请求主要通过请求体携带数据，同时也可以通过请求头携带
+      xhr.send("hello");
+    </script>
+  </body>
+</html>
