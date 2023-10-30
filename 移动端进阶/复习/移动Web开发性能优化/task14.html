@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件稀释 防抖 debounce</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 4000px;
+      background-image: linear-gradient(red, green, yellow);
+    }
+    a {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 80px;
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      display: none;
+    }
+  </style>
+  <body>
+    <a href="#">⬆️</a>
+  </body>
+  <script>
+    const a = document.querySelector("a");
+    let winHeight = window.innerHeight;
+    window.onresize = debounce(function () {
+      winHeight = window.innerHeight;
+    });
+    window.onscroll = debounce(function () {
+      if (window.scrollY >= winHeight) {
+        a.style.display = "block";
+      } else {
+        a.style.display = "none";
+      }
+    });
+    // 防抖函数
+    function debounce(fn, time = 200, context) {
+      let timer = null;
+      return function (arguments) {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        const self = context || this;
+        timer = setTimeout(() => {
+          fn.apply(self, arguments);
+          timer = null;
+        }, time);
+      };
+    }
+  </script>
+</html>

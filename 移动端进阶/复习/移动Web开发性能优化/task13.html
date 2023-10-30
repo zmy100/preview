@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件稀释 防抖 debounce</title>
+  </head>
+  <style>
+    body {
+      height: 2000px;
+    }
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: olivedrab;
+    }
+  </style>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    window.onresize = debounce(function () {
+      console.log("resize...");
+    });
+    window.onscroll = debounce(function () {
+      console.log("scroll....");
+    });
+    document.querySelector("div").onmousemove = debounce(function () {
+      console.log("mousemove....");
+    });
+    // 防抖函数
+    function debounce(fn, time = 20, context) {
+      let timer = null;
+      return function (arguments) {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        const self = context || this;
+        timer = setTimeout(() => {
+          fn.apply(self, arguments);
+          timer = null;
+        }, time);
+      };
+    }
+  </script>
+</html>

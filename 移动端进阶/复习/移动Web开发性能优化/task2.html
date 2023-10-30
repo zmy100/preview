@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1,maximum-scale=1, user-scalable=no"
+    />
+    <title>图片优化</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      /* 减少请求资源的大小 */
+      @media screen and (max-width: 560px) {
+        div.img-container {
+          width: 100%;
+          padding-top: 56%;
+          background-image: url(https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202310241939710.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      @media screen and (min-width: 560px) {
+        div.img-container {
+          width: 100%;
+          padding-top: 56.25%;
+          background-image: url(https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202310241957896.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-container"></div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>减少 DOM 操作</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 4000px;
+      background-image: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    }
+    a {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 80px;
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      display: none;
+    }
+  </style>
+  <body>
+    <a href="#">⬆️</a>
+  </body>
+  <script>
+    // 获取窗口的高度，用于判断滚动距离是否大于等于窗口的高度，保存在winHeight变量中
+    let winHeight = window.innerHeight;
+    // 只有当前窗口的大小发生变化时，才会重新获取窗口的高度，保存在winHeight变量中
+    window.onresize = function () {
+      winHeight = window.innerHeight;
+    };
+    // 找到 a 对象, 就是回到顶部的按钮
+    var a = document.querySelector("a");
+    // 监听滚动事件, 当滚动到一定距离时, 显示回到顶部按钮, 否则隐藏回到顶部按钮
+    window.onscroll = function () {
+      // 判断滚动距离是否大于等于窗口高度
+      if (window.scrollY >= winHeight) {
+        a.style.display = "block";
+      } else {
+        a.style.display = "none";
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画优化</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mask" class="mask"></div>
+    <script>
+      // 找对象
+      const mask = document.getElementById("mask");
+      // 给遮罩层添加点击事件
+      mask.addEventListener("click", function () {
+        // 点击，遮罩层透明度变为0
+        mask.style.opacity = 0;
+      });
+      // 动画结束之后清除样式
+      mask.addEventListener("transitionend", function () {
+        mask.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

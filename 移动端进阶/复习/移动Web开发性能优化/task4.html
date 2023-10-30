@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画优化</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mask" class="mask"></div>
+    <script>
+      // requestAnimationFrame 和 setTimeout 类似
+      //  找对象
+      const mask = document.getElementById("mask");
+      // 给遮罩层添加点击事件
+      mask.addEventListener("click", function () {
+        requestAnimationFrame(fadeOut);
+      });
+      // 定义一个变量，初始透明度为1
+      let opacity = 1;
+      function fadeOut() {
+        opacity -= 0.05;
+        if (opacity <= 0) {
+          opacity = 0;
+          mask.style.display = "none";
+        } else {
+          requestAnimationFrame(fadeOut);
+        }
+        mask.style.opacity = opacity;
+      }
+    </script>
+  </body>
+</html>

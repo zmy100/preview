@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>减少 DOM 操作</title>
+  </head>
+  <body>
+    <ul></ul>
+  </body>
+  <script>
+    // 定义一个数组
+    var toDoData = ["洗衣服", "做饭", "写代码"];
+    // 找到 ul 对象
+    var ul = document.querySelector("ul");
+    // 创建文档碎片
+    var liFragment = document.createDocumentFragment();
+    // 遍历数组
+    for (var i = 0; i < toDoData.length; i++) {
+      // 创建 li 元素, 孤儿节点
+      var li = document.createElement("li");
+      // 添加类名
+      li.className = "item";
+      // 添加内容
+      li.innerHTML = toDoData[i];
+      // 把 孤儿节点添加到 文档碎片 中
+      liFragment.appendChild(li);
+    }
+    // 把文档碎片添加到ul中,这样只会触发一次上树操作
+    ul.appendChild(liFragment);
+  </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>减少 DOM 操作</title>
+  </head>
+  <body>
+    <ul></ul>
+  </body>
+  <script>
+    // 定义一个数组
+    var toDoData = ["洗衣服", "做饭", "写代码"];
+    // 找对象
+    var ul = document.querySelector("ul");
+    // 定义一个空字符串
+    var htmlString = "";
+    // 遍历数组
+    for (var i = 0; i < toDoData.length; i++) {
+      // 拼接字符串
+      htmlString += `<li class="item">${toDoData[i]}</li>`;
+    }
+    // 字符串拼接完成后，将字符串添加到ul中
+    ul.innerHTML = htmlString;
+  </script>
+</html>
