@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>外星人笔记本</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        text-align: center;
+      }
+      body > img:nth-child(1) {
+        border-radius: 15px;
+        padding: 5px;
+        border: 5px solid orange;
+      }
+      ul {
+        list-style: none;
+        display: inline-block;
+      }
+      ul li {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+      }
+      ul li.active {
+        border: 2px solid orange;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./img/外星人笔记本/1.jpg" id="bigImg" />
+    <br />
+    <br />
+    <ul>
+      <li class="active">
+        <a href="">
+          <img src="./img/外星人笔记本/1.jpg" width="50" class="smallImg" />
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="./img/外星人笔记本/2.jpg" width="50" class="smallImg" />
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="./img/外星人笔记本/3.jpg" width="50" class="smallImg" />
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="./img/外星人笔记本/4.jpg" width="50" class="smallImg" />
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="./img/外星人笔记本/5.jpg" width="50" class="smallImg" />
+        </a>
+      </li>
+    </ul>
+  </body>
+  <script>
+    // 找对象
+    // 大图片
+    var bigImg = document.getElementById("bigImg");
+    // 小图片
+    var smallImgs = document.querySelectorAll("ul li");
+    // 遍历所有的小图片
+    for (var i = 0; i < smallImgs.length; i++) {
+      // 给小图片添加鼠标移入事件
+      smallImgs[i].onmouseover = function () {
+        // 遍历所有的小图片
+        for (var j = 0; j < smallImgs.length; j++) {
+          // 去掉所有小图片的类名
+          if (smallImgs[j].classList.contains("active")) {
+            smallImgs[j].classList.remove("active");
+          }
+        }
+        // 给当前的li标签添加类名
+        this.classList.add("active");
+        // 修改大图片的src
+        bigImg.src = this.querySelector("img").src;
+      };
+    }
+  </script>
+</html>
