@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 5000px;
+        background-image: linear-gradient(to bottom, blue, green, yellow);
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 100px;
+        font-size: 44px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+      }
+      div:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>↑</div>
+  </body>
+  <script>
+    // 找对象
+    var div = document.querySelector("div");
+    // 定时器标记
+    var timer = null;
+    // 浏览器窗口的内容区域的高度
+    var windowHeight = window.innerHeight;
+    // 监听window.onscroll事件
+    window.addEventListener("scroll", function () {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      // 如果滚动距离大于等于浏览器窗口的高度
+      if (scrollTop >= windowHeight) {
+        // 显示按钮
+        div.style.display = "block";
+      } else {
+        // 隐藏按钮
+        div.style.display = "none";
+      }
+    });
+    // 按钮添加点击事件
+    // 点击按钮返回顶部
+    div.onclick = function () {
+      // 点击按钮之前清除定时器
+      clearInterval(timer);
+      timer = setInterval(() => {
+        // 每20ms，滚动条向上滚动50px
+        document.documentElement.scrollTop -= 50;
+        // 如果回到顶部，停掉定时器
+        if (document.documentElement.scrollTop <= 0) {
+          clearInterval(timer);
+        }
+      }, 20);
+    };
+  </script>
+</html>

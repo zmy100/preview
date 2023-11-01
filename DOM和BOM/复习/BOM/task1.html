@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      username: <input type="text" id="username" /> <br /><br />
+      password: <input type="password" name="" id="password" /> <br /><br />
+      <button>登录</button>
+    </form>
+  </body>
+  <script>
+    // 找到元素并存储到变量中
+    // 用户名输入框
+    var username = document.getElementById("username");
+    // 密码输入框
+    var password = document.getElementById("password");
+    // 登录按钮
+    var button = document.querySelector("button");
+    // 为按钮添加点击事件
+    button.onclick = function () {
+      // 判断输入的用户名和密码是否正确
+      if (username.value === "张三" && password.value === "123456") {
+        // 如果正确, 跳转到百度网站
+        window.location.href = "https://www.baidu.com";
+      } else {
+        // 如果不正确, 弹出提示信息
+        alert("信息不对!");
+      }
+      // 阻止表单的默认提交行为
+      return false;
+    };9
+  </script>
+</html>
