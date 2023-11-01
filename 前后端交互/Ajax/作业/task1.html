@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+      }
+      h2 {
+        font-weight: normal;
+      }
+      h2 .rank,
+      h2 a {
+        font-weight: bold;
+      }
+      .score {
+        font-weight: bold;
+        color: red;
+      }
+      .person-number {
+        font-style: italic;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 50px;
+      }
+      div.container {
+        width: 1000px;
+        margin: 50px auto;
+      }
+      .actor {
+        font-style: italic;
+        color: blue;
+      }
+      .show-date {
+        font-weight: bold;
+        color: orangered;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+  <script>
+    // 从评价中获取数字
+    function getEvaluateNumberFromString(evaluateString) {
+      // 使用正则, 从字符串中, 获取数字
+      const reg = /\d+/;
+      // 使用正则, 从字符串中, 获取数字
+      const number = evaluateString.match(reg)[0];
+      // 返回数字
+      return number;
+    }
+    // 从字符串中, 获取上映时间
+    function getShowDateFromString(yanyuanString) {
+      // 字符串转数组, 通过 / 分割
+      const arr = yanyuanString.split("/");
+      // 去除数组中每个元素的空格
+      let newArr = arr.map((item) => item.trim());
+      // 如果是空字符串, 会被过滤掉
+      newArr = newArr.filter((item) => item);
+      // 定义一个日期的正则
+      const reg = /\d{4}-\d{2}-\d{2}/;
+      // 如果包含日期, 放入日期数组
+      const dateArr = newArr.filter((item) => reg.test(item));
+      // 数组转字符串, 使用" / "拼接
+      const dateStr = dateArr.join(" / ");
+      // 返回字符串
+      return dateStr;
+    }
+    // 从字符串中, 获取演员
+    function getActorFromString(yanyuanString) {
+      // 字符串转数组, 通过 / 分割
+      const arr = yanyuanString.split("/");
+      // 去除数组中每个元素的空格
+      let newArr = arr.map((item) => item.trim());
+      // 如果是空字符串, 会被过滤掉
+      newArr = newArr.filter((item) => item);
+      // 定义一个日期的正则
+      const reg = /\d{4}-\d{2}-\d{2}/;
+      // 如果不包含日期, 放入演员数组
+      const actorArr = newArr.filter((item) => !reg.test(item));
+      // 数组转字符串, 使用" / "拼接
+      const actorStr = actorArr.join(" / ");
+      // 返回字符串
+      return actorStr;
+    }
+    // ajax请求
+    // 创建xhr对象
+    const xhr = new XMLHttpRequest();
+    // 路径
+    var url = "https://www.happy-learning.cn/douban/index.php";
+    // 监听事件,处理响应
+    xhr.onreadystatechange = function () {
+      // 如果等于状态4，则继续判断status
+      if (xhr.readyState === 4) {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.response.data);
+          // 得到电影数据
+          const data = xhr.response.data;
+          // 拼接字符串
+          let str = "<h1>豆瓣电影热度top10</h1>";
+          // 遍历数组
+          data.forEach((movieObj, index) => {
+            str += `<h2><span class="rank">排行: ${String(index + 1).padStart(
+              3,
+              "0"
+            )}</span><a href=${movieObj.info.url}>《${
+              movieObj.title
+            }》</a> 评分:<span class="score">${
+              movieObj.info.pingfen
+            }</span>(<span class="person-number">${getEvaluateNumberFromString(
+              movieObj.info.pingjia
+            )}</span>人评价)</h2><div><img src="${
+              movieObj.info.imgurl
+            }" alt=""/></div><h3>上映时间: <span class="show-date">${getShowDateFromString(
+              movieObj.info.yanyuan
+            )}</span></h3><p><b>演员:</b><span class="actor">${getActorFromString(
+              movieObj.info.yanyuan
+            )}</span></p>`;
+          });
+          // 把拼接好的字符串渲染到页面中
+          document.querySelector(".container").innerHTML = str;
+        }
+      }
+    };
+    xhr.responseType = "json";
+    // 准备发送请求
+    xhr.open("get", url, true);
+    // 发送请求
+    xhr.send(null);
+  </script>
+</html>
