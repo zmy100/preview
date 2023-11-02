@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>response 属性</title>
+  </head>
+  <body>
+    <script>
+      const url = `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent(
+        "湿巾"
+      )}`;
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState !== 4) {
+          return;
+        }
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.response);
+        }
+      };
+
+      xhr.open("get", url, true);
+      // 设置为json, 会自动解析成对象, 需要使用 response 查看结果
+      xhr.responseType = "json";
+      xhr.send(null);
+    </script>
+  </body>
+</html>
