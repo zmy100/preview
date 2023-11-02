@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setRequestHeader() 方法</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <input type="text" name="username" />
+      <input type="password" name="password" />
+      <input type="submit" value="提交" />
+    </form>
+    <script>
+      const xhr = new XMLHttpRequest();
+      const url = `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent(
+        "湿巾"
+      )}`;
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.response);
+          }
+        }
+      };
+
+      xhr.open("get", url, true);
+      xhr.send(null);
+      // 设置请求头信息
+      // {"username":"zhangsan","sex":"male","age":18}
+      // xhr.setRequestHeader("Content-Type", "application/json");
+      // username=zhangsan&sex=male&age=18
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    </script>
+  </body>
+</html>

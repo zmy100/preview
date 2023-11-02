@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormData 的基本用法</title>
+  </head>
+  <body>
+    <form
+      id="login"
+      action="https://www.baidu.com/login"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="text" name="username" placeholder="用户名" />
+      <input type="password" name="password" placeholder="密码" />
+      <input id="submit" type="submit" value="登录" />
+    </form>
+    <script>
+      // 获取表单元素
+      const form = document.getElementById("login");
+      // 解构赋值
+      const { username, password } = form;
+      // 获取按钮对应的dom元素
+      const button = document.getElementById("submit");
+      const url = "https://www.baidu.com/login";
+      // 按钮添加点击事件
+      button.onclick = function (e) {
+        // 阻止默认事件
+        e.preventDefault();
+        // ajax
+        // 创建xhr对象
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", function () {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.response);
+          }
+        });
+        const data = new FormData(form);
+        // 在原有的基础上，追加数据
+        data.append("age", 18);
+        data.append("hobby", "study");
+        data.append("weight", 190);
+        xhr.open("post", url, true);
+        // 发送数据
+        xhr.send(data);
+      };
+    </script>
+  </body>
+</html>

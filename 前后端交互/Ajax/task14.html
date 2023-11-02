@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>abort() 方法</title>
+  </head>
+  <body>
+    <script>
+      const xhr = new XMLHttpRequest();
+      const url = `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent(
+        "湿巾"
+      )}`;
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.response);
+          }
+        }
+      };
+      
+      xhr.open("get", url, true);
+      xhr.send(null);
+      // 终止当前请求
+      xhr.abort();
+    </script>
+  </body>
+</html>

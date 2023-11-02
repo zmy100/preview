@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timeout 事件</title>
+  </head>
+  <body>
+    <script>
+      const url = `https://api.vvhan.com/api/la.ji?lj=${encodeURIComponent(
+        "湿巾"
+      )}`;
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", () => {
+        if (xhr.readyState !== 4) {
+          return;
+        }
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.response);
+        }
+      });
+      // 请求超时后触发
+      xhr.addEventListener("timeout", function () {
+        console.log("请求已超时!");
+      });
+      xhr.open("get", url, true);
+      xhr.send(null);
+      xhr.timeout = 10;
+    </script>
+  </body>
+</html>

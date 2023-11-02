@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>error 事件</title>
+  </head>
+  <body>
+    <script>
+      const url = `https://api.vvvvvvvvvvvvvhan.com/api/la.ji?lj=${encodeURIComponent(
+        "湿巾"
+      )}`;
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", () => {
+        if (xhr.readyState !== 4) {
+          return;
+        }
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.response);
+        }
+      });
+      // 请求发生错误时触发
+      xhr.addEventListener("error", () => {
+        console.log("请求有误, 建议检查网址!");
+      });
+      xhr.open("get", url, true);
+      xhr.send(null);
+    </script>
+  </body>
+</html>
