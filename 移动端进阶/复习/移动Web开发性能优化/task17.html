@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片懒加载</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        height: 183px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-container">
+      <img src="./img/loading.webp" data-src="./img/t1.png" alt="" />
+    </div>
+    <div class="img-container">
+      <img src="./img/loading.webp" data-src="./img/t2.png" alt="" />
+    </div>
+    <div class="img-container">
+      <img src="./img/loading.webp" data-src="./img/t3.png" alt="" />
+    </div>
+    <div class="img-container">
+      <img src="./img/loading.webp" data-src="./img/t4.png" alt="" />
+    </div>
+    <div class="img-container">
+      <img src="./img/loading.webp" data-src="./img/t5.png" alt="" />
+    </div>
+  </body>
+  <script>
+    // 找到img元素,组成一个数组
+    const imgArray = [...document.querySelectorAll("img")];
+    // 当用户滚动页面时，执行lazyload函数
+    window.onscroll = lazyload;
+    // 初次加载页面时，执行lazyload函数
+    lazyload();
+    // 定义一个图片懒加载函数
+    function lazyload() {
+      // 遍历存有img的数组
+      for (let index = 0; index < imgArray.length; index++) {
+        // 获取当前遍历到的图片的元素
+        const element = imgArray[index];
+        // 如果当前的图片处于可视区域
+        if (isInVisibleArea(element)) {
+          // 设置图片的src为其data-src的真实路径
+          element.src = element.dataset.src;
+          // 从数组中删除当前已经加载的图片,索引值减一
+          imgArray.splice(index--, 1);
+        }
+      }
+    }
+    // 定义一个判断图片是否在可视区域的函数
+    function isInVisibleArea(el) {
+      // 获取图片的位置
+      const rect = el.getBoundingClientRect();
+      // 如果图片在可视区域，返回true
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    }
+  </script>
+</html>

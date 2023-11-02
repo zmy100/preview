@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流 throttle</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    window.onresize = throttle(function () {
+      console.log("resize...");
+    }, 200); // 延迟200毫秒触发
+    window.onscroll = throttle(function () {
+      console.log("scroll....");
+    }, 200); // 延迟200毫秒触发
+    
+    // 节流函数
+    function throttle(fn, delay) {
+      // 上一次执行时间
+      let lastTime = 0;
+      return function () {
+        // 当前时间
+        const nowTime = Date.now();
+        // 如果当前时间减去上一次的时间大于等于节流的时间
+        if (nowTime - lastTime >= delay) {
+          // 调用函数
+          fn.apply(this, arguments);
+          // 更新上一次执行的时间
+          lastTime = nowTime;
+        }
+      };
+    }
+  </script>
+</html>

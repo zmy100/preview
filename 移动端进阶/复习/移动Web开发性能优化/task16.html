@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流 throttle</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 4000px;
+        background-image: linear-gradient(red, green, yellow);
+      }
+      a {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-size: 80px;
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        line-height: 100px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">⬆️</a>
+  </body>
+  <script>
+    const a = document.querySelector("a"); // 选取页面上的第一个<a>标签，并将其存储在常量"a"中
+
+    let winHeight = window.innerHeight; // 获取当前窗口的内部高度，赋值给 "winHeight"
+    window.onresize = throttle(function () {
+      winHeight = window.innerHeight; // 当窗口大小发生改变时，重新获取并更新窗口的内部高度
+    }, 200);
+
+    window.onscroll = throttle(function () {
+      if (window.scrollY >= winHeight) {
+        // 当滚动距离超过或等于窗口的内部高度时
+        a.style.display = "block"; // 显示<a>标签（即使其可见）
+      } else {
+        // 当滚动距离小于窗口的内部高度时
+        a.style.display = "none"; // 隐藏<a>标签（即使其不可见）
+      }
+    }, 200);
+
+    // 节流函数
+    function throttle(fn, delay) {
+      let lastTime = 0;
+      return function () {
+        const nowTime = Date.now();
+        if (nowTime - lastTime >= delay) {
+          fn.apply(this, arguments);
+          lastTime = nowTime;
+        }
+      };
+    }
+  </script>
+</html>

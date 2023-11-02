@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片预加载</title>
+    <style>
+      .img-container {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      img {
+        width: 100%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-container">
+      <img src="./images/1.png" alt="图片" id="img" />
+    </div>
+    <script>
+      // 定义了一个图片数组，存放着四张图片的路径。
+      var imgs = [
+        "./images/2.jpg",
+        "./images/3.jpg",
+        "./images/4.jpg",
+        "./images/5.jpg",
+        "./images/6.jpg",
+        "./images/7.jpg",
+        "./images/8.jpg",
+        "./images/9.jpg",
+        "./images/10.jpg",
+        "./images/11.jpg",
+        "./images/12.jpg",
+        "./images/13.jpg",
+      ];
+      // 初始化一个索引变量 i，用来迭代图片数组。
+      var i = 0;
+      // 获取页面中的 img 元素。
+      var img = document.getElementById("img");
+      // 预加载第一张图片
+      preload(imgs[i]);
+      // 当点击 img 元素时，执行下面的函数
+      img.onclick = function () {
+        // 如果 i 小于图片数组的长度（也就是说还有图片没有显示）
+        if (i < imgs.length) {
+          // 将 img 元素的 src 属性设置为当前索引对应的图片路径，展示图片
+          img.src = imgs[i];
+          // 索引加 1，准备显示下一张图片
+          i++;
+          // 如果还有下一张图片，则预加载下一张图片
+          if (i < imgs.length) {
+            preload(imgs[i]);
+          }
+        } else {
+          // 如果已经没有更多的图片了，则在控制台打印提示信息
+          console.log("已经是最后一张了！");
+        }
+      };
+      // 预加载图片的函数，创建一个新的 Image 对象，并为其 src 属性赋值，使得浏览器可以在显示图片之前先将图片下载到本地，提高用户体验
+      function preload(src) {
+        const img = new Image();
+        img.src = src;
+      }
+    </script>
+  </body>
+</html>
