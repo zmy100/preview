@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 移入axios库 -->
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <title>axios</title>
+    <style>
+      p {
+        font-weight: bold;
+        font-size: 22px;
+        color: orangered;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>每天一句毒鸡汤</h1>
+    <p></p>
+  </body>
+  <script>
+    // 找到p标签
+    const p = document.querySelector("p");
+    // 定义路径
+    const url =
+      "https://www.fastmock.site/mock/94a22227d1eef9fb0ac0d468a93c8e27/api/txt";
+    // 向给定ID用户发起请求
+    axios
+      .get(url)
+      .then(function (response) {
+        // 处理成功情况
+        p.innerHTML = response.data.data;
+      })
+      .catch(function (error) {
+        // 处理错误情况
+        console.log(error);
+      })
+      .finally(function () {
+        // 总是会执行
+      });
+  </script>
+</html>
