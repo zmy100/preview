@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0 auto;
+      }
+      td,
+      th {
+        padding: 0;
+      }
+      .pure-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        empty-cells: show;
+        border: 1px solid #cbcbcb;
+      }
+      .pure-table caption {
+        color: #000;
+        font: italic 85%/1 arial, sans-serif;
+        padding: 1em 0;
+        text-align: center;
+      }
+      .pure-table td,
+      .pure-table th {
+        border-left: 1px solid #cbcbcb;
+        border-width: 0 0 0 1px;
+        font-size: inherit;
+        margin: 0;
+        overflow: visible;
+        padding: 0.5em 1em;
+      }
+      .pure-table thead {
+        background-color: #e0e0e0;
+        color: #000;
+        text-align: left;
+        vertical-align: bottom;
+      }
+      .pure-table td {
+        background-color: transparent;
+      }
+      .pure-table-horizontal td,
+      .pure-table-horizontal th {
+        border-width: 0 0 1px 0;
+        border-bottom: 1px solid #cbcbcb;
+      }
+      .pure-table-horizontal tbody > tr:last-child > td {
+        border-bottom-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="pure-table pure-table-horizontal">
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>身高</th>
+        <th>体重</th>
+        <th>爱好</th>
+      </tr>
+    </table>
+  </body>
+  <script>
+    var personArray = [
+      {
+        name: "范剑",
+        age: 21,
+        height: 175,
+        weight: 66,
+        hobby: "习惯性加班",
+      },
+      {
+        name: "庞光",
+        age: 19,
+        height: 160,
+        weight: 80,
+        hobby: "凌晨夜跑",
+      },
+      {
+        name: "郑再镐",
+        age: 30,
+        height: 150,
+        weight: 90,
+        hobby: "看美女",
+      },
+      {
+        name: "朴仁猛",
+        age: 44,
+        height: 171,
+        weight: 74,
+        hobby: "大保健",
+      },
+      {
+        name: "杜子腾",
+        age: 35,
+        height: 179,
+        weight: 69,
+        hobby: "吃大肠刺身",
+      },
+    ];
+    // 获取table元素
+    const table = document.querySelector("table");
+    // 声明tr和td变量
+    let tr = null;
+    let td = null;
+    // 遍历personArray数组
+    for (const i in personArray) {
+      // 创建tr元素
+      tr = document.createElement("tr");
+      // 遍历personArray[i]对象的属性
+      for (const j in personArray[i]) {
+        // 创建td元素
+        td = document.createElement("td");
+        // 根据属性名进行不同的处理
+        switch (j) {
+          // 如果属性是age，将其值加上岁后设置为td的innerHTML
+          case "age":
+            td.innerHTML = personArray[i][j] + "岁";
+            break;
+          // 如果属性是height，将其值加上CM后设置为td的innerHTML
+          case "height":
+            td.innerHTML = personArray[i][j] + "CM";
+            break;
+          // 如果属性是weight，将其值加上KG后设置为td的innerHTML
+          case "weight":
+            td.innerHTML = personArray[i][j] + "KG";
+            break;
+          // 如果属性不是age、height或weight，直接设置为td的innerHTML
+          default:
+            td.innerHTML = personArray[i][j];
+            break;
+        }
+        // 将td添加到tr中
+        tr.appendChild(td);
+      }
+      // 将tr添加到table中
+      table.appendChild(tr);
+    }
+  </script>
+</html>
